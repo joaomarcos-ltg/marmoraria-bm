@@ -805,7 +805,7 @@
             <p><strong>2. Medição Técnica, Projeto Executivo e Obra:</strong> As medidas finais serão conferidas pela CONTRATADA em até 03 dias úteis após o sinal, enviando-se o projeto executivo em até 05 dias úteis. Cubas, torneiras, cooktops e plantas hidráulicas/elétricas/gás devem estar no local no dia da medição. Estruturação de sustentação (alvenaria/metálica) e içamento de peças grandes são de responsabilidade do CONTRATANTE. Para aprovação remota de orçamento, responda <strong>"ORÇAMENTO APROVADO"</strong> no WhatsApp; na visita técnica será entregue este contrato em <strong>2 vias impressas</strong> (1 via do cliente e 1 via do escritório).</p>
             <p><strong>3. Pagamento e Cancelamento:</strong> Atraso no pagamento acarreta multa de 10%. Conforme Art. 49 do CDC, o CONTRATANTE tem até 07 dias da assinatura para desistência antes da aprovação do projeto executivo. Cancelamento após medição técnica implica multa de 15%; após aprovação do projeto executivo e corte das pedras, multa de 70% sobre o pedido (estornando-se apenas a mão de obra de instalação). Descumprimento contratual sujeita a parte infratora à multa de 20%.</p>
             <p><strong>4. Características dos Materiais, Uso e Garantia (6 Meses):</strong> Rochas naturais (mármores, granitos e quartzitos) possuem variações únicas de veios, poros e tonalidades próprias da natureza; compostos industrializados também podem variar entre lotes. <strong>Cuidados:</strong> Mármores têm baixa resistência a manchas/ácidos; Granitos têm média resistência; Quartzos têm alta resistência, mas não suportam sol/calor direto (panelas quentes) e linhas como <em>Quartzo Zeus</em> podem apresentar absorção de líquidos/manchas se não limpos imediatamente com pano úmido e sabão neutro. A CONTRATADA oferece <strong>6 (seis) meses de garantia</strong> sobre os serviços de instalação, excluindo-se mau uso, impactos, sobrecarga, choque térmico ou produtos abrasivos/cloro.</p>
-            <p><strong>5. Foro Privilegiado:</strong> Fica eleito o Foro da Comarca de <strong>Lins - SP</strong> para dirimir quaisquer litígios oriundos deste instrumento, assinando as partes em 2 (duas) vias de igual teor.</p>
+            <p id="clausulaForo" class="hidden"><strong>5. Foro Privilegiado:</strong> Fica eleito o Foro da Comarca de <strong>Lins - SP</strong> para dirimir quaisquer litígios oriundos deste instrumento, assinando as partes em 2 (duas) vias de igual teor.</p>
           </div>
 
           <div id="seloAprovadoPrint" class="hidden p-2 rounded-lg bg-emerald-50 border border-emerald-400 text-emerald-900 font-bold text-[10px] text-center">
@@ -1092,6 +1092,7 @@
       document.getElementById('outCtColocacao').innerText = document.getElementById('ctColocacao').value;
       document.getElementById('outCtPagto').innerText = document.getElementById('ctPagto').value;
       document.getElementById('seloAprovadoPrint').classList.toggle('hidden', !aprovado);
+      document.getElementById('clausulaForo').classList.toggle('hidden', tipo !== 'contrato');
     }
 
     // Frase padrão solicitada pela Grazy para confirmar agendamento do medidor
