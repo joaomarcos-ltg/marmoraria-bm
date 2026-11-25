@@ -34,6 +34,18 @@
   </script>
 
   <style>
+    body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    input, textarea, select {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
     @media print {
       body * { visibility: hidden; }
       #contrato-print, #contrato-print * { visibility: visible; }
@@ -117,7 +129,7 @@
   </header>
 
   <!-- ===================================================================== -->
-  <!-- MODO 1: SITE PÚBLICO PARA CLIENTES (VISUAL PREMIUM MARMORARIA)        -->
+  <!-- MODO 1: SITE PÚBLICO PARA CLIENTES                                    -->
   <!-- ===================================================================== -->
   <div id="visao-cliente">
 
@@ -170,8 +182,8 @@
           <div class="bg-zinc-900/90 border border-zinc-800 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-5">
             <div class="flex items-center justify-between border-b border-zinc-800 pb-4">
               <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-red-500">Fale Direto com os Sócios</span>
-                <h2 class="font-display text-xl font-bold text-white mt-0.5">Atendimento Sem Burocracia</h2>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-red-500">Central de Atendimento B&M</span>
+                <h2 class="font-display text-xl font-bold text-white mt-0.5">Atendimento Rápido & Direto</h2>
               </div>
               <div class="w-11 h-11 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl">
                 <i class="fa-brands fa-whatsapp"></i>
@@ -195,15 +207,11 @@
               </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-              <a href="https://wa.me/5514996132244?text=Ol%C3%A1%20Michel!%20Vim%20pelo%20site%20da%20Marmoraria%20B%26M%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" class="py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition">
-                <i class="fa-brands fa-whatsapp text-base"></i>
-                <span>Michel (14) 99613-2244</span>
-              </a>
-              <a href="https://wa.me/5514991760067?text=Ol%C3%A1%20Bruno!%20Vim%20pelo%20site%20da%20Marmoraria%20B%26M%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" class="py-3 px-4 rounded-xl bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition">
-                <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
-                <span>Bruno (14) 99176-0067</span>
-              </a>
+            <div class="pt-2">
+              <button onclick="abrirWhatsCentral()" class="w-full py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition shadow-lg">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Chamar Equipe B&M no WhatsApp</span>
+              </button>
             </div>
           </div>
         </div>
@@ -259,7 +267,7 @@
       </div>
     </section>
 
-    <!-- CATÁLOGO VISUAL DE PEDRAS & GUIA DE RESISTÊNCIA (PARA O CLIENTE) -->
+    <!-- CATÁLOGO VISUAL DE PEDRAS -->
     <section id="catalogo" class="bg-zinc-900/50 border-y border-zinc-800/80 py-16 px-4">
       <div class="max-w-7xl mx-auto space-y-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -282,8 +290,7 @@
       </div>
     </section>
 
-
-    <!-- FAIXA PARALLAX INTERMEDIÁRIA (EFEITO ENCOBRIMENTO AO ROLAR) -->
+    <!-- FAIXA PARALLAX INTERMEDIÁRIA -->
     <section class="parallax-mid py-20 px-4 border-y border-zinc-800 text-center">
       <div class="max-w-3xl mx-auto space-y-4">
         <span class="text-xs font-bold uppercase tracking-[0.25em] text-red-500">Excelência em Cada Detalhe</span>
@@ -302,21 +309,25 @@
       </div>
     </section>
 
-    <!-- SOLICITADOR DE ORÇAMENTO PARA CLIENTES (SEM EXPOR CUSTOS INTERNOS) -->
+    <!-- SOLICITADOR DE ORÇAMENTO PARA CLIENTES (UX APRIMORADA) -->
     <section id="simulador-cliente" class="max-w-4xl mx-auto px-4 py-16">
       <div class="bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-zinc-800 shadow-2xl space-y-6">
         <div class="text-center max-w-xl mx-auto space-y-2">
           <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[11px] font-bold uppercase">
-            <i class="fa-brands fa-whatsapp"></i> Atendimento Direto com Michel & Bruno
+            <i class="fa-brands fa-whatsapp"></i> Atendimento Oficial Marmoraria B&M
           </span>
           <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Solicite seu Orçamento Sob Medida</h2>
-          <p class="text-xs text-zinc-400">Configure os detalhes abaixo para enviar sua solicitação organizada diretamente no nosso WhatsApp.</p>
+          <p class="text-xs text-zinc-400">Configure os detalhes abaixo para enviar sua solicitação organizada diretamente para nossa equipe.</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
           <div>
             <label class="font-bold text-zinc-300 block mb-1.5">Seu Nome *</label>
             <input type="text" id="cliNome" placeholder="Ex: Carlos Eduardo" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500">
+          </div>
+          <div>
+            <label class="font-bold text-zinc-300 block mb-1.5">Seu WhatsApp *</label>
+            <input type="tel" id="cliWhats" placeholder="Ex: (14) 99999-9999" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500">
           </div>
           <div>
             <label class="font-bold text-zinc-300 block mb-1.5">Cidade / Bairro da Obra *</label>
@@ -350,7 +361,7 @@
           </div>
           <div>
             <label class="font-bold text-zinc-300 block mb-1.5">Acabamento de Borda</label>
-            <select id="cliBorda" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3.5 py-3 text-white">
+            <select id="cliBorda" onchange="atualizarExplicacaoBorda()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3.5 py-3 text-white">
               <option value="Meia-Esquadria 45° (Saia Alta)">Meia-Esquadria 45° (Saia Alta)</option>
               <option value="Reto Duplo / Boleado">Reto Duplo / Boleado</option>
               <option value="A definir na medição">A definir na medição</option>
@@ -358,19 +369,21 @@
           </div>
         </div>
 
+        <!-- Explicação Visual do Acabamento de Borda para Leigos -->
+        <div id="boxExplicacaoBorda" class="p-3.5 rounded-2xl bg-zinc-950 border border-amber-500/30 text-xs text-zinc-300 flex items-start gap-2.5">
+          <i class="fa-solid fa-circle-info text-amber-400 text-sm mt-0.5"></i>
+          <div id="textoExplicacaoBorda"></div>
+        </div>
+
         <div class="text-xs">
           <label class="font-bold text-zinc-300 block mb-1.5">Medidas Aproximadas ou Observações (Opcional)</label>
           <textarea id="cliObs" rows="3" placeholder="Ex: Bancada em L com 2,40m x 1,60m, espaço para cooktop e cuba inox..." class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500"></textarea>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-          <button onclick="enviarPedidoCliente('5514996132244', 'Michel')" class="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-lg flex items-center justify-center gap-2 transition">
-            <i class="fa-brands fa-whatsapp text-lg"></i>
-            <span>Enviar Orçamento p/ Michel</span>
-          </button>
-          <button onclick="enviarPedidoCliente('5514991760067', 'Bruno')" class="w-full py-4 rounded-xl bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition">
-            <i class="fa-brands fa-whatsapp text-emerald-400 text-lg"></i>
-            <span>Enviar Orçamento p/ Bruno</span>
+        <div class="pt-2">
+          <button onclick="enviarPedidoCliente()" class="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm sm:text-base shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2.5 transition">
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+            <span>Enviar Solicitação de Orçamento</span>
           </button>
         </div>
         <p class="text-center text-[11px] text-zinc-500">Resposta rápida em horário comercial • Orçamento e medição técnica sem compromisso.</p>
@@ -404,7 +417,7 @@
   </div>
 
   <!-- ===================================================================== -->
-  <!-- MODO 2: ÁREA RESTRITA DA EQUIPE B&M (CALCULADORAS + CONTRATO ASSINADO) -->
+  <!-- MODO 2: ÁREA RESTRITA DA EQUIPE B&M                                   -->
   <!-- ===================================================================== -->
   <div id="visao-equipe" class="hidden max-w-7xl mx-auto px-4 py-8 space-y-8">
     <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3 no-print">
@@ -414,12 +427,85 @@
         </div>
         <div>
           <h2 class="font-bold text-sm text-amber-300">Painel Interno Exclusivo — Equipe Marmoraria B&M</h2>
-          <p class="text-xs text-zinc-400">Calculadoras de fábrica, formação de preço por m² e emissão de contrato com assinatura digital na tela.</p>
+          <p class="text-xs text-zinc-400">Calculadoras de fábrica, formação de preço por m², manual técnico e emissão de orçamento/contrato.</p>
         </div>
       </div>
-      <button onclick="voltarVitrine()" class="px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-bold transition">
-        <i class="fa-solid fa-eye mr-1"></i>Voltar para Visão do Cliente
-      </button>
+      <div class="flex items-center gap-2 flex-wrap">
+        <button onclick="toggleManualEquipe()" id="btnManualEquipe" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-black text-xs font-extrabold transition flex items-center gap-1.5">
+          <i class="fa-solid fa-book-open"></i>
+          <span>Manual & Explicação das Calculadoras</span>
+        </button>
+        <button onclick="voltarVitrine()" class="px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-bold transition">
+          <i class="fa-solid fa-eye mr-1"></i>Voltar ao Site Público
+        </button>
+      </div>
+    </div>
+
+    <!-- MANUAL COMPLETO DA EQUIPE (OCULTO POR PADRÃO, ABRE AO CLICAR NO BOTÃO) -->
+    <div id="boxManualEquipe" class="hidden bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-amber-500/40 space-y-6 text-xs no-print">
+      <div class="flex items-center justify-between border-b border-zinc-800 pb-4">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400">Guia Operacional • Marmoraria B&M</span>
+          <h3 class="font-display text-2xl font-bold text-white mt-0.5">Manual das Calculadoras & Fluxo Comercial</h3>
+        </div>
+        <button onclick="toggleManualEquipe()" class="px-3 py-1.5 rounded-lg bg-zinc-800 text-zinc-300 hover:text-white font-bold">Fechar Manual ✕</button>
+      </div>
+
+      <!-- Explicação das 4 Calculadoras -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 rounded-2xl bg-zinc-950 border border-zinc-800 space-y-1.5">
+          <h4 class="font-bold text-sm text-red-400">1. Cálculo de Preço de Venda (m² + Acabamento)</h4>
+          <p class="text-zinc-300"><strong>Para que serve:</strong> Formar o preço final de venda da peça.</p>
+          <ul class="list-disc pl-4 text-zinc-400 space-y-1">
+            <li><strong>Material (R$/m²):</strong> Valor de venda do metro quadrado da pedra escolhida.</li>
+            <li><strong>Perda / Quebra (%):</strong> Margem de segurança (ex: 10% a 15%) para recortes de cuba, cooktop e sobras de corte.</li>
+            <li><strong>Acabamento Borda (R$/ml):</strong> Cobrado por metro linear (soma do comprimento + largura exposta) para fazer 45° (meia-esquadria) ou boleado.</li>
+            <li><strong>Fórmula usada:</strong> <code>[(Comp × Larg × (1 + Perda%)) × R$/m²] + [(Comp + Larg) × R$/ml] + Instalação</code>.</li>
+            <li><strong>Botão "Jogar no Orçamento / Contrato ↓":</strong> Transfere automaticamente as medidas, área com perda e o valor total para o documento logo abaixo.</li>
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-zinc-950 border border-zinc-800 space-y-1.5">
+          <h4 class="font-bold text-sm text-amber-400">2. Aproveitamento de Chapa Bruta</h4>
+          <p class="text-zinc-300"><strong>Para que serve:</strong> Evitar prejuízo na compra de chapas e calcular o retalho antes de cortar.</p>
+          <ul class="list-disc pl-4 text-zinc-400 space-y-1">
+            <li>Informa quantas peças iguais cabem dentro de uma chapa bruta (testando automaticamente o corte na horizontal e na vertical para achar o melhor encaixe).</li>
+            <li>Mostra o <strong>% de Aproveitamento Útil</strong> e o <strong>% de Retalho</strong> que sobrará na fábrica.</li>
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-zinc-950 border border-zinc-800 space-y-1.5">
+          <h4 class="font-bold text-sm text-rose-400">3. Peso da Bancada & Mãos-Francesas</h4>
+          <p class="text-zinc-300"><strong>Para que serve:</strong> Segurança estrutural na casa do cliente e logística de carregamento.</p>
+          <ul class="list-disc pl-4 text-zinc-400 space-y-1">
+            <li>Multiplica o volume da peça (<code>Comp × Larg × Espessura</code>) pela densidade média das rochas ornamentais (<strong>2.750 kg/m³</strong>).</li>
+            <li>Se ultrapassar <strong>65 kg</strong>, emite alerta automático exigindo mãos-francesas metálicas reforçadas para não ceder o armário planejado.</li>
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-zinc-950 border border-zinc-800 space-y-1.5">
+          <h4 class="font-bold text-sm text-sky-400">4. Conversor de Unidades (m / cm / mm / pol)</h4>
+          <p class="text-zinc-300"><strong>Para que serve:</strong> Traduzir plantas de arquitetos e engenheiros sem erro de escala.</p>
+          <ul class="list-disc pl-4 text-zinc-400 space-y-1">
+            <li>Projetos de marcenaria e arquitetura costumam vir em <strong>milímetros (mm)</strong> (ex: <code>2450 mm</code>) ou <strong>polegadas (in)</strong> para cubas/cooktops importados. Digite em qualquer unidade e veja todas as conversões na hora.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Fluxo Operacional: Situação 1 e Situação 2 -->
+      <div class="p-5 rounded-2xl bg-zinc-950 border border-emerald-500/30 space-y-3">
+        <h4 class="font-bold text-sm text-emerald-400">Fluxo Prático de Venda & Fechamento (2 Situações do Dia a Dia)</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-zinc-300">
+          <div class="space-y-1">
+            <p class="font-bold text-white">Situação 1: Fechamento Presencial na Obra (Tablet)</p>
+            <p class="text-zinc-400">1. O sócio ou técnico mede o local e calcula na <strong>Calculadora 1</strong>.<br>2. Clica em <strong>"Jogar no Orçamento / Contrato ↓"</strong>, seleciona <em>Contrato de Prestação de Serviços</em>.<br>3. O cliente confere, marca a caixa <strong>"LI E APROVO"</strong> e assina na tela.<br>4. O técnico clica em <strong>"Enviar Resumo p/ WhatsApp B&M"</strong> e <strong>"Salvar PDF"</strong>, enviando o PDF ao cliente e ao WhatsApp Business da empresa para liberar a produção.</p>
+          </div>
+          <div class="space-y-1">
+            <p class="font-bold text-white">Situação 2: Orçamento Remoto via WhatsApp Business</p>
+            <p class="text-zinc-400">1. A equipe preenche como <em>Proposta de Orçamento</em> e envia no WhatsApp Business para validação interna.<br>2. Aprovado o valor, encaminha ao cliente pelo WhatsApp.<br>3. O cliente responde <strong>"ORÇAMENTO APROVADO"</strong>.<br>4. Na visita de medição na obra, o técnico leva o contrato impresso em <strong>2 vias assinadas</strong> pela B&M (1 via fica com o cliente e 1 via assinada volta ao escritório).</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Grid das 4 Calculadoras de Fábrica -->
@@ -456,15 +542,15 @@
             <input type="number" id="eqInst" value="180" oninput="calcPrecoEquipe()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white">
           </div>
         </div>
-        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-between">
+        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-between gap-2">
           <div>
             <span class="text-zinc-400 block">Área c/ Perda: <strong id="eqAreaOut" class="text-white">1,48 m²</strong></span>
             <span class="text-zinc-400 block">Valor Final Sugerido:</span>
           </div>
           <div class="text-right space-y-1">
             <strong id="eqTotalOut" class="font-display text-2xl font-extrabold text-emerald-400 block">R$ 1.378,76</strong>
-            <button type="button" onclick="transferirParaContrato()" class="px-3 py-1 rounded-lg bg-red-600 hover:bg-red-500 text-white text-[11px] font-bold transition">
-              Jogar no Contrato ↓
+            <button type="button" onclick="transferirParaContrato()" class="px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-500 text-white text-[11px] font-bold transition">
+              Jogar no Orçamento / Contrato ↓
             </button>
           </div>
         </div>
@@ -555,18 +641,18 @@
       </div>
     </div>
 
-    <!-- GERADOR DE PEDIDO & CONTRATO COM ASSINATURA NA TELA -->
+    <!-- GERADOR DE ORÇAMENTO & CONTRATO -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-4">
       <div class="lg:col-span-5 bg-zinc-900 rounded-2xl p-6 border border-zinc-800 space-y-4 text-xs no-print">
         <div>
           <span class="text-[11px] font-bold uppercase text-emerald-400">Fechamento de Venda • Balcão ou Obra</span>
-          <h3 class="font-display text-xl font-bold text-white">Gerador de Pedido & Contrato</h3>
+          <h3 class="font-display text-xl font-bold text-white">Gerador de Orçamento & Contrato</h3>
         </div>
         <div>
           <label class="text-zinc-400 block mb-1">Tipo de Documento</label>
           <select id="ctTipoDoc" onchange="atualizarContrato()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-amber-400 font-bold">
             <option value="orcamento">Proposta de Orçamento (Para Aprovação no WhatsApp)</option>
-            <option value="contrato">Contrato de Prestação de Serviços (2 Vias na Obra)</option>
+            <option value="contrato">Contrato de Prestação de Serviços (2 Vias / Obra)</option>
           </select>
         </div>
         <div>
@@ -591,10 +677,16 @@
             <input type="text" id="ctVal" value="" placeholder="0,00" oninput="atualizarContrato()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white font-bold">
           </div>
           <div>
-            <label class="text-zinc-400 block mb-1">Prazo (dias úteis)</label>
+            <label class="text-zinc-400 block mb-1">Prazo (dias úteis) até</label>
             <input type="number" id="ctPrazo" value="12" oninput="atualizarContrato()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white">
           </div>
         </div>
+
+        <!-- Caixa de Verificação de Aprovação Expressa -->
+        <label class="flex items-start gap-2.5 p-3 rounded-xl bg-zinc-950 border border-emerald-500/40 cursor-pointer">
+          <input type="checkbox" id="chkAprovadoCliente" onchange="atualizarContrato()" class="mt-0.5 w-4 h-4 accent-emerald-500">
+          <span class="text-zinc-200 font-semibold">APROVADO PELO CLIENTE — Declaro que li, conferi as medidas/valores e concordo com as cláusulas deste documento.</span>
+        </label>
 
         <!-- Assinatura Digital do Cliente na Tela -->
         <div class="pt-2 border-t border-zinc-800 space-y-2">
@@ -605,20 +697,25 @@
           <canvas id="canvasBM" class="w-full h-28 bg-white rounded-xl cursor-crosshair"></canvas>
         </div>
 
-        <div class="grid grid-cols-2 gap-2 pt-2">
-          <button onclick="enviarContratoWhats()" class="py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition">
-            <i class="fa-brands fa-whatsapp"></i> Enviar Resumo
-          </button>
-          <button onclick="window.print()" class="py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition">
-            <i class="fa-solid fa-print"></i> Salvar PDF / Imprimir
+        <div class="space-y-2 pt-2">
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="enviarContratoWhats('cliente')" class="py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition">
+              <i class="fa-brands fa-whatsapp"></i> Enviar p/ Cliente
+            </button>
+            <button onclick="enviarContratoWhats('empresa')" class="py-3 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition">
+              <i class="fa-brands fa-whatsapp"></i> Enviar p/ B&M
+            </button>
+          </div>
+          <button onclick="window.print()" class="w-full py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition">
+            <i class="fa-solid fa-print"></i> Salvar PDF / Imprimir (2 Vias)
           </button>
         </div>
       </div>
 
-      <!-- Folha Oficial do Contrato -->
-      <div id="contrato-print" class="lg:col-span-7 bg-white text-zinc-900 rounded-2xl p-8 border border-zinc-300 shadow-xl flex flex-col justify-between space-y-5 text-xs">
-        <div class="space-y-5">
-          <div class="flex items-center justify-between border-b-2 border-red-600 pb-4">
+      <!-- Folha Oficial do Orçamento / Contrato -->
+      <div id="contrato-print" class="lg:col-span-7 bg-white text-zinc-900 rounded-2xl p-8 border border-zinc-300 shadow-xl flex flex-col justify-between space-y-4 text-xs">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between border-b-2 border-red-600 pb-3">
             <div>
               <h2 class="font-display text-2xl font-extrabold text-zinc-900">MARMORARIA <span class="text-red-600">B&M</span></h2>
               <p class="text-[11px] font-bold text-zinc-500">JUNTOS SOMOS MAIS FORTES • GUAIÇARA - SP</p>
@@ -631,36 +728,42 @@
 
           <h3 id="outCtTitulo" class="text-center font-bold text-base uppercase tracking-wider">Proposta de Orçamento</h3>
 
-          <div class="bg-zinc-100 p-4 rounded-xl space-y-1">
+          <div class="bg-zinc-100 p-3.5 rounded-xl space-y-1">
             <p><strong>Contratante (Cliente):</strong> <span id="outCtCliente">___________________________________</span></p>
             <p><strong>Endereço da Obra:</strong> <span id="outCtEnd">___________________________________</span></p>
           </div>
 
-          <div class="space-y-1.5">
+          <div class="space-y-1">
             <p class="font-bold">1. Especificação das Peças e Materiais:</p>
             <p id="outCtDesc" class="p-3 border border-zinc-300 rounded-xl bg-zinc-50"></p>
           </div>
 
-          <div class="grid grid-cols-2 gap-4 bg-zinc-100 p-4 rounded-xl">
+          <div class="grid grid-cols-2 gap-4 bg-zinc-100 p-3.5 rounded-xl">
             <p><strong id="outCtLabelVal">Valor do Orçamento:</strong> R$ <span id="outCtVal">0,00</span></p>
-            <p><strong>Prazo de Entrega:</strong> <span id="outCtPrazo">12</span> dias úteis após medição</p>
+            <p><strong>Prazo de Entrega:</strong> Até <span id="outCtPrazo">12</span> dias úteis após medição</p>
           </div>
 
-          <div class="p-3 rounded-xl bg-amber-50 border border-amber-200 text-[11px] text-zinc-700 space-y-1">
-            <p><strong>2. Aprovação & Formalização na Obra:</strong> Para aprovar este orçamento, basta responder <strong>"ORÇAMENTO APROVADO"</strong> pelo WhatsApp. Na visita de medição técnica na obra, nosso colaborador entregará este contrato em <strong>2 vias impressas</strong> já assinadas pela Marmoraria B&M (1 via permanece com o cliente e 1 via assinada retorna ao escritório).</p>
+          <div class="p-3 rounded-xl bg-amber-50 border border-amber-200 text-[11px] text-zinc-700">
+            <p><strong>2. Aprovação & Formalização na Obra:</strong> Para aprovar este orçamento, basta responder <strong>"ORÇAMENTO APROVADO"</strong> pelo WhatsApp. Na visita de medição técnica na obra, nosso colaborador entregará o contrato em <strong>2 vias impressas</strong> já assinadas pela Marmoraria B&M (1 via permanece com o cliente e 1 via assinada retorna ao escritório).</p>
           </div>
+
           <div class="text-[11px] text-zinc-600 space-y-1.5 text-justify">
             <p><strong>3. Características das Rochas Naturais:</strong> Por se tratarem de rochas ornamentais extraídas da natureza (granitos, mármores e quartzitos), variações de tonalidade, veios, cristais e pequenos poros são características naturais e exclusivas de cada chapa, não constituindo defeito do material.</p>
             <p><strong>4. Garantia Legal & Conservação (CDC):</strong> Garantia legal de <strong>90 (noventa) dias</strong> (Art. 26 do CDC) a partir da instalação, cobrindo exclusivamente defeitos de corte, acabamento, colagem e fixação realizados pela Marmoraria B&M. A garantia não cobre danos por mau uso, impactos, sobrecarga de peso, choque térmico (panelas quentes diretamente sobre Quartzo/pedras) ou manchas provocadas por ácidos e produtos químicos abrasivos (água sanitária, cloro, limão, vinagre).</p>
+            <p><strong>5. Foro Privilegiado:</strong> Para dirimir quaisquer dúvidas ou litígios oriundos deste instrumento, as partes elegem o Foro da Comarca de <strong>Lins - SP</strong>, com renúncia expressa a qualquer outro, por mais privilegiado que seja.</p>
+          </div>
+
+          <div id="seloAprovadoPrint" class="hidden p-2.5 rounded-lg bg-emerald-50 border border-emerald-400 text-emerald-900 font-bold text-[11px] text-center">
+            [✓] ORÇAMENTO / CONTRATO CONFERIDO E APROVADO EXPRESSAMENTE PELO CLIENTE
           </div>
         </div>
 
-        <div class="pt-6 grid grid-cols-2 gap-8 text-center text-[11px] items-end">
+        <div class="pt-5 grid grid-cols-2 gap-8 text-center text-[11px] items-end">
           <div>
             <div class="border-t border-zinc-800 pt-1.5 font-bold">Marmoraria B&M (Michel / Bruno)</div>
           </div>
           <div class="flex flex-col items-center">
-            <img id="imgAssinaturaBM" src="" class="h-16 object-contain hidden -mb-1" />
+            <img id="imgAssinaturaBM" src="" class="h-14 object-contain hidden -mb-1" />
             <div class="w-full border-t border-zinc-800 pt-1.5 font-bold">Assinatura do Cliente</div>
           </div>
         </div>
@@ -689,7 +792,39 @@
     </div>
   </footer>
 
+  <!-- BOTÃO FLUTUANTE WHATSAPP -->
+  <button onclick="abrirWhatsCentral()" title="Falar no WhatsApp"
+     class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white shadow-2xl flex items-center justify-center text-2xl transition transform hover:scale-105 no-print">
+    <i class="fa-brands fa-whatsapp"></i>
+  </button>
+
   <script>
+    // =========================================================================
+    // NÚMERO CENTRAL DO WHATSAPP (ATUALMENTE SEU NÚMERO PARA TESTES/DEMONSTRAÇÃO)
+    // Quando o Michel aprovar o site, basta trocar para o WhatsApp Business da B&M
+    // =========================================================================
+    const WHATS_BM = "5514998602147";
+
+    // Proteção básica anti-cópia (bloqueia clique direito e atalhos de cópia/código-fonte)
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && ['u', 's', 'c'].includes(e.key.toLowerCase()) && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+        e.preventDefault();
+      }
+      if (e.key === 'F12') e.preventDefault();
+    });
+
+    const EXPLICACOES_BORDA = {
+      "Meia-Esquadria 45° (Saia Alta)": "<strong>O que é Meia-Esquadria 45°:</strong> É o acabamento mais moderno e sofisticado. As bordas da pedra são cortadas em ângulo de 45° e coladas formando uma frente alta (saia) sem emendas aparentes, dando aspecto de pedra maciça.",
+      "Reto Duplo / Boleado": "<strong>O que é Reto Duplo / Boleado:</strong> Acabamento clássico onde duas camadas de pedra são coladas na borda para dar espessura reforçada, com cantos retos polidos ou levemente arredondados (boleados).",
+      "A definir na medição": "<strong>A definir na medição:</strong> Não se preocupe se ainda estiver em dúvida! Nosso técnico levará amostras e explicará as opções na visita gratuita à sua obra."
+    };
+
+    function atualizarExplicacaoBorda() {
+      const val = document.getElementById('cliBorda').value;
+      document.getElementById('textoExplicacaoBorda').innerHTML = EXPLICACOES_BORDA[val] || "";
+    }
+
     const PEDRAS = [
       { nome: "Preto São Gabriel", cat: "Granito", css: "stone-sao-gabriel", uso: "Cozinhas, Ilhas e Áreas Gourmet", desc: "Alta resistência a riscos, calor e baixa absorção. Visual sofisticado e uniforme." },
       { nome: "Granito Via Láctea", cat: "Granito", css: "stone-via-lactea", uso: "Cozinhas Modernas e Bancadas com Pé", desc: "Fundo preto intenso com veios brancos naturais marcantes e altíssima durabilidade." },
@@ -725,14 +860,8 @@
       `).join('');
     }
 
-    function filtrarPedras(cat) {
-      renderizarPedras(cat);
-    }
-
-    function preSelecionarProjeto(proj) {
-      document.getElementById('cliProjeto').value = proj;
-    }
-
+    function filtrarPedras(cat) { renderizarPedras(cat); }
+    function preSelecionarProjeto(proj) { document.getElementById('cliProjeto').value = proj; }
     function selecionarPedraCliente(pedraNome) {
       const sel = document.getElementById('cliPedra');
       for (let opt of sel.options) {
@@ -743,16 +872,26 @@
       }
     }
 
-    function enviarPedidoCliente(numero, socio) {
-      const nome = document.getElementById('cliNome').value.trim() || 'Cliente';
+    function abrirWhatsCentral() {
+      const msg = "Olá equipe da *Marmoraria B&M*! Vim pelo site e gostaria de solicitar um orçamento.";
+      window.open(`https://wa.me/${WHATS_BM}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function enviarPedidoCliente() {
+      const nome = document.getElementById('cliNome').value.trim();
+      const whats = document.getElementById('cliWhats').value.trim();
       const cidade = document.getElementById('cliCidade').value.trim() || 'Guaiçara - SP';
+      if (!nome || !whats) {
+        alert("Por favor, preencha seu Nome e WhatsApp para enviarmos o retorno do orçamento.");
+        return;
+      }
       const proj = document.getElementById('cliProjeto').value;
       const pedra = document.getElementById('cliPedra').value;
       const borda = document.getElementById('cliBorda').value;
       const obs = document.getElementById('cliObs').value.trim();
 
-      const msg = `Olá *${socio}* (Marmoraria B&M)! Gostaria de solicitar um orçamento:\n\n👤 *Cliente:* ${nome}\n📍 *Local da Obra:* ${cidade}\n🏗️ *Projeto:* ${proj}\n💎 *Pedra:* ${pedra}\n✨ *Acabamento:* ${borda}${obs ? `\n📐 *Medidas/Obs:* ${obs}` : ''}`;
-      window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`, '_blank');
+      const msg = `Olá equipe da *Marmoraria B&M*! Gostaria de solicitar um orçamento pelo site:\n\n👤 *Cliente:* ${nome}\n📱 *WhatsApp:* ${whats}\n📍 *Local da Obra:* ${cidade}\n🏗️ *Projeto:* ${proj}\n💎 *Pedra:* ${pedra}\n✨ *Acabamento:* ${borda}${obs ? `\n📐 *Medidas/Obs:* ${obs}` : ''}`;
+      window.open(`https://wa.me/${WHATS_BM}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     // ================= MODO EQUIPE =================
@@ -767,6 +906,10 @@
       document.getElementById('navPublica').classList.add('hidden');
       document.getElementById('visao-equipe').classList.remove('hidden');
       setTimeout(initSigBM, 50);
+    }
+
+    function toggleManualEquipe() {
+      document.getElementById('boxManualEquipe').classList.toggle('hidden');
     }
 
     function voltarVitrine() {
@@ -807,6 +950,17 @@
       const total = (areaTot * m2) + ((comp + larg) * mlP) + inst;
       document.getElementById('eqAreaOut').innerText = areaTot.toFixed(2).replace('.', ',') + ' m²';
       document.getElementById('eqTotalOut').innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    function transferirParaContrato() {
+      const comp = document.getElementById('eqComp').value;
+      const larg = document.getElementById('eqLarg').value;
+      const area = document.getElementById('eqAreaOut').innerText;
+      const totalFormatado = document.getElementById('eqTotalOut').innerText.replace('R$', '').trim();
+      document.getElementById('ctDesc').value = `Peça sob medida (${comp} cm x ${larg} cm — área total c/ corte: ${area}), com acabamento de borda e instalação inclusa.`;
+      document.getElementById('ctVal').value = totalFormatado;
+      atualizarContrato();
+      document.getElementById('ctCliente').scrollIntoView({ behavior: 'smooth' });
     }
 
     function calcChapa() {
@@ -850,19 +1004,9 @@
       `;
     }
 
-    function transferirParaContrato() {
-      const comp = document.getElementById('eqComp').value;
-      const larg = document.getElementById('eqLarg').value;
-      const area = document.getElementById('eqAreaOut').innerText;
-      const totalFormatado = document.getElementById('eqTotalOut').innerText.replace('R$', '').trim();
-      document.getElementById('ctDesc').value = `Peça sob medida (${comp} cm x ${larg} cm — área total c/ corte: ${area}), com acabamento de borda e instalação inclusa.`;
-      document.getElementById('ctVal').value = totalFormatado;
-      atualizarContrato();
-      document.getElementById('ctCliente').scrollIntoView({ behavior: 'smooth' });
-    }
-
     function atualizarContrato() {
       const tipo = document.getElementById('ctTipoDoc').value;
+      const aprovado = document.getElementById('chkAprovadoCliente').checked;
       document.getElementById('outCtTitulo').innerText = tipo === 'orcamento'
         ? 'Proposta de Orçamento'
         : 'Contrato de Prestação de Serviços (Via Cliente / Via Escritório)';
@@ -874,34 +1018,42 @@
       document.getElementById('outCtDesc').innerText = document.getElementById('ctDesc').value || 'Aguardando preenchimento da especificação técnica...';
       document.getElementById('outCtVal').innerText = document.getElementById('ctVal').value || '0,00';
       document.getElementById('outCtPrazo').innerText = document.getElementById('ctPrazo').value;
+      document.getElementById('seloAprovadoPrint').classList.toggle('hidden', !aprovado);
     }
 
-    function enviarContratoWhats() {
+    function enviarContratoWhats(destino) {
+      const tipo = document.getElementById('ctTipoDoc').value;
       const cli = document.getElementById('ctCliente').value || 'Cliente';
       const tel = document.getElementById('ctWhats').value.replace(/\D/g, '');
       const desc = document.getElementById('ctDesc').value || 'Peças sob medida conforme projeto';
       const val = document.getElementById('ctVal').value || '0,00';
       const prazo = document.getElementById('ctPrazo').value;
-      const msg = `Olá *${cli}*! Segue o resumo do orçamento do seu pedido solicitado à *Marmoraria B&M*:\n\n📐 *Descrição:* ${desc}\n💰 *Valor do Orçamento:* R$ ${val}\n⏱️ *Prazo Estimado:* ${prazo} dias úteis após medição\n\n✅ *Como aprovar:* Basta responder *"ORÇAMENTO APROVADO"* aqui mesmo no WhatsApp. Na visita técnica à obra, nosso colaborador levará o contrato impresso em 2 vias já assinado pela Marmoraria B&M (1 via fica com você e 1 via assinada retorna para o nosso escritório).\n\nQualquer dúvida, estamos à disposição!`;
-      window.open(tel ? `https://wa.me/55${tel}?text=${encodeURIComponent(msg)}` : `https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+      const aprovado = document.getElementById('chkAprovadoCliente').checked;
+
+      let msg = "";
+      if (tipo === 'orcamento') {
+        msg = `Olá *${cli}*! Segue o resumo do orçamento do seu pedido solicitado à *Marmoraria B&M*:\n\n📐 *Descrição:* ${desc}\n💰 *Valor do Orçamento:* R$ ${val}\n⏱️ *Prazo de Entrega:* Até ${prazo} dias úteis após medição\n\n✅ *Como aprovar:* Basta responder *"ORÇAMENTO APROVADO"* aqui mesmo no WhatsApp. Na visita técnica à obra, nosso colaborador levará o contrato impresso em 2 vias já assinado pela Marmoraria B&M (1 via fica com você e 1 via assinada retorna para o escritório).\n\nQualquer dúvida, estamos à disposição!`;
+      } else {
+        msg = `Olá *${cli}*! Segue o resumo do *Contrato Fechado* com a *Marmoraria B&M*:\n\n📐 *Descrição:* ${desc}\n💰 *Valor Total Acordado:* R$ ${val}\n⏱️ *Prazo de Entrega:* Até ${prazo} dias úteis após medição\n${aprovado ? '✅ *Status:* APROVADO E ASSINADO PELO CLIENTE NA OBRA' : ''}\n\nEm seguida enviaremos o arquivo PDF assinado. Agradecemos pela confiança!`;
+      }
+
+      if (destino === 'empresa') {
+        window.open(`https://wa.me/${WHATS_BM}?text=${encodeURIComponent(msg)}`, '_blank');
+      } else {
+        window.open(tel ? `https://wa.me/55${tel}?text=${encodeURIComponent(msg)}` : `https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+      }
     }
 
     window.addEventListener('DOMContentLoaded', () => {
       renderizarPedras();
-      if (window.location.hash === '#equipe') { alternarModoEquipe(); }
+      atualizarExplicacaoBorda();
       calcPrecoEquipe();
       calcChapa();
       calcPeso();
       calcConv();
       atualizarContrato();
+      if (window.location.hash === '#equipe') { alternarModoEquipe(); }
     });
   </script>
-
-  <!-- BOTÃO FLUTUANTE WHATSAPP -->
-  <a href="https://wa.me/5514996132244?text=Ol%C3%A1%20Marmoraria%20B%26M!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" title="Falar no WhatsApp"
-     class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white shadow-2xl flex items-center justify-center text-2xl transition transform hover:scale-105 no-print">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-
 </body>
 </html>
