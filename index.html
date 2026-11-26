@@ -278,12 +278,12 @@
           </div>
 
           <div class="flex flex-wrap gap-2 text-xs">
-            <button onclick="filtrarPedras('todas')" class="filtro-pedra px-3.5 py-2 rounded-xl bg-amber-500 text-black font-bold">Todas (8)</button>
-            <button onclick="filtrarPedras('Granito')" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500">Granitos</button>
-            <button onclick="filtrarPedras('Mármore')" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500">Mármores</button>
-            <button onclick="filtrarPedras('Quartzo')" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500">Quartzos</button>
-            <button onclick="filtrarPedras('Quartzito')" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500">Quartzitos</button>
-            <button onclick="filtrarPedras('Lâminas')" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500">Lâminas</button>
+            <button onclick="filtrarPedras('todas', this)" class="filtro-pedra px-3.5 py-2 rounded-xl bg-amber-500 text-black font-bold transition">Todas (8)</button>
+            <button onclick="filtrarPedras('Granito', this)" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500 transition">Granitos (2)</button>
+            <button onclick="filtrarPedras('Mármore', this)" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500 transition">Mármores (1)</button>
+            <button onclick="filtrarPedras('Quartzo', this)" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500 transition">Quartzos (3)</button>
+            <button onclick="filtrarPedras('Quartzito', this)" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500 transition">Quartzitos (1)</button>
+            <button onclick="filtrarPedras('Lâminas', this)" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500 transition">Lâminas (1)</button>
           </div>
         </div>
 
@@ -447,7 +447,7 @@
         <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Avaliação dos Clientes</span>
         <h2 class="font-display text-3xl font-bold text-white mt-1">Quem Já Transformou Seu Ambiente</h2>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 text-xs">
         <div class="bg-zinc-900 p-6 rounded-3xl border border-zinc-800 space-y-3">
           <div class="text-amber-400"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
           <p class="text-zinc-300 italic leading-relaxed">"Recomendo a Marmoraria B&M por ser uma empresa séria, com preços justos, confiável, entrega no prazo, profissionais altamente qualificados, pedras nacionais e importadas com mais alto padrão de qualidade."</p>
@@ -462,6 +462,14 @@
           <div class="text-amber-400"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
           <p class="text-zinc-300 italic leading-relaxed">"Encantada com cada detalhe desses profissionais, preço justo, atendimento nota 1000. Atendeu nossas expectativas e ainda muito melhor!"</p>
           <p class="font-bold text-white pt-1">Luciene Zafalão Avanzi</p>
+        </div>
+        <div class="bg-zinc-900 p-6 rounded-3xl border border-amber-500/30 space-y-3">
+          <div class="flex items-center justify-between">
+            <div class="text-amber-400"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 text-[10px] font-bold">Parceiro Técnico</span>
+          </div>
+          <p class="text-zinc-300 italic leading-relaxed">"Como engenheiro, exijo rigor milimétrico nas medidas, respeito ao cronograma da obra e acabamento limpo na entrega. A Marmoraria B&M executou todo o projeto com precisão técnica exemplar e zero retrabalho."</p>
+          <p class="font-bold text-white pt-1">Eng. João Marcos</p>
         </div>
       </div>
     </section>
@@ -844,10 +852,27 @@
       <div class="space-y-1.5">
         <strong class="text-white uppercase tracking-wider block">Tecnologia & Presença Digital</strong>
         <p>Desenvolvido por <a href="https://sites.legiaotecnica.com.br" class="text-amber-400 hover:underline font-bold">Legião Técnica Group</a></p>
+        <div class="flex flex-wrap gap-3 pt-1">
+          <button onclick="abrirPolitica('privacidade')" class="text-zinc-400 hover:text-white underline">Política de Privacidade</button>
+          <button onclick="abrirPolitica('termos')" class="text-zinc-400 hover:text-white underline">Termos de Uso</button>
+          <button onclick="abrirPolitica('garantia')" class="text-zinc-400 hover:text-white underline">Garantia & Cuidados</button>
+        </div>
         <p class="text-zinc-600">© 2026 Marmoraria B&M. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
+
+
+  <!-- MODAL POLÍTICAS INSTITUCIONAIS B&M -->
+  <div id="modalPoliticas" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 no-print">
+    <div class="bg-zinc-900 border border-zinc-700 rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-4 text-xs shadow-2xl max-h-[85vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
+        <h3 id="tituloPolitica" class="font-display text-lg font-bold text-white">Política</h3>
+        <button onclick="fecharPolitica()" class="px-3 py-1 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-bold">Fechar ✕</button>
+      </div>
+      <div id="conteudoPolitica" class="text-zinc-300 space-y-3 leading-relaxed"></div>
+    </div>
+  </div>
 
   <!-- BOTÃO FLUTUANTE WHATSAPP -->
   <button onclick="abrirWhatsCentral()" title="Falar no WhatsApp"
@@ -921,7 +946,15 @@
       `).join('');
     }
 
-    function filtrarPedras(cat) { renderizarPedras(cat); }
+    function filtrarPedras(cat, btn) {
+      renderizarPedras(cat);
+      if (btn) {
+        document.querySelectorAll('.filtro-pedra').forEach(b => {
+          b.className = 'filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500 transition';
+        });
+        btn.className = 'filtro-pedra px-3.5 py-2 rounded-xl bg-amber-500 text-black font-bold transition';
+      }
+    }
 
     function marcarProjetoCard(valor) {
       document.querySelectorAll('input[name="cliProjMulti"]').forEach(cb => {
@@ -1125,6 +1158,41 @@
       } else {
         window.open(tel ? `https://wa.me/55${tel}?text=${encodeURIComponent(msg)}` : `https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
       }
+    }
+
+    
+    const TEXTOS_POLITICAS = {
+      privacidade: {
+        titulo: "Política de Privacidade & LGPD — Marmoraria B&M",
+        corpo: `<p>A <strong>MARMORARIA BM LTDA</strong> (CNPJ 38.423.684/0001-07), sediada em Guaiçara - SP, respeita a privacidade de seus clientes em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018).</p>
+        <p><strong>1. Coleta e Uso de Dados:</strong> Os dados informados no simulador de orçamento (nome, telefone/WhatsApp, cidade e medidas do projeto) são utilizados exclusivamente para elaboração de propostas comerciais, agendamento de medição técnica e execução contratual.</p>
+        <p><strong>2. Compartilhamento:</strong> Não comercializamos nem compartilhamos dados pessoais com terceiros alheios à execução da obra e entrega dos materiais.</p>
+        <p><strong>3. Direitos do Titular:</strong> O cliente pode solicitar a atualização ou exclusão de seus dados de atendimento a qualquer momento pelo canal oficial (14) 99895-5624.</p>`
+      },
+      termos: {
+        titulo: "Termos de Uso & Condições Comerciais",
+        corpo: `<p><strong>1. Orçamentos Online:</strong> As solicitações enviadas pelo site servem para triagem técnica e estimativa inicial. O valor definitivo é consolidado após a conferência de medidas no local da obra e definição dos acessórios (cubas, cooktops e acabamentos).</p>
+        <p><strong>2. Prazos e Produção:</strong> O prazo padrão de entrega é de até <strong>20 (vinte) dias úteis</strong> após a aprovação formal do projeto executivo e compensação do sinal acordado.</p>
+        <p><strong>3. Foro:</strong> Para dirimir eventuais questões oriundas dos contratos celebrados com a Marmoraria B&M, fica eleito o Foro da Comarca de <strong>Lins - SP</strong>.</p>`
+      },
+      garantia: {
+        titulo: "Política de Garantia & Conservação de Pedras",
+        corpo: `<p><strong>1. Garantia de Instalação (6 Meses):</strong> A Marmoraria B&M oferece <strong>6 (seis) meses de garantia</strong> sobre os serviços de instalação e colagem das peças fornecidas, excetuando-se danos decorrentes de mau uso, impactos mecânicos, sobrecarga (subir sobre bancadas), movimentação estrutural da obra ou uso de insumos fora de especificação.</p>
+        <p><strong>2. Características Naturais e Lotes:</strong> Mármores, granitos e quartzitos são rochas naturais e apresentam variações únicas de veios, poros e tonalidades. Superfícies industrializadas (quartzos e lâminas) também podem apresentar leve variação entre lotes.</p>
+        <p><strong>3. Limpeza e Conservação:</strong> Utilize apenas pano úmido e sabão neutro. Nunca utilize cloro, água sanitária, ácidos, removedores ou esponjas abrasivas. Em superfícies de Quartzo (incluindo linhas como <em>Quartzo Zeus</em>), evite contato direto com panelas quentes, exposição solar contínua e limpe líquidos imediatamente para evitar manchas.</p>`
+      }
+    };
+
+    function abrirPolitica(tipo) {
+      const item = TEXTOS_POLITICAS[tipo];
+      if (!item) return;
+      document.getElementById('tituloPolitica').innerText = item.titulo;
+      document.getElementById('conteudoPolitica').innerHTML = item.corpo;
+      document.getElementById('modalPoliticas').classList.remove('hidden');
+    }
+
+    function fecharPolitica() {
+      document.getElementById('modalPoliticas').classList.add('hidden');
     }
 
     window.addEventListener('DOMContentLoaded', () => {
