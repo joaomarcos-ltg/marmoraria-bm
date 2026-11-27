@@ -991,7 +991,18 @@
       const borda = document.getElementById('cliBorda').value;
       const obs = document.getElementById('cliObs').value.trim();
 
-      const msg = `Olá equipe da *Marmoraria B&M*! Gostaria de solicitar um orçamento pelo site:\n\n👤 *Cliente:* ${nome}\n📱 *WhatsApp:* ${whats}\n📍 *Local da Obra:* ${cidade}\n🏗️ *Peças/Projetos:* ${projTexto}\n💎 *Pedra:* ${pedra}\n✨ *Acabamento:* ${borda}${obs ? `\n📐 *Medidas/Obs:* ${obs}` : ''}`;
+      const msg = [
+        `Olá equipe da *Marmoraria B&M*! Gostaria de solicitar um orçamento pelo site:`,
+        ``,
+        `\u{1F464} *Cliente:* ${nome}`,
+        `\u{1F4F1} *WhatsApp:* ${whats}`,
+        `\u{1F4CD} *Local da Obra:* ${cidade}`,
+        `\u{1F3E0} *Peças/Projetos:* ${projTexto}`,
+        `\u{1F48E} *Pedra:* ${pedra}`,
+        `\u{2728} *Acabamento:* ${borda}`,
+        obs ? `\u{1F4D0} *Medidas/Obs:* ${obs}` : null
+      ].filter(item => item !== null).join('\n');
+
       window.open(`https://wa.me/${WHATS_BM}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
@@ -1148,9 +1159,28 @@
 
       let msg = "";
       if (tipo === 'orcamento') {
-        msg = `Olá *${cli}*! Segue o resumo do orçamento do seu pedido solicitado à *Marmoraria B&M*:\n\n📐 *Descrição:* ${desc}\n💰 *Valor do Orçamento:* R$ ${val}\n⏱️ *Prazo de Entrega:* Até ${prazo} dias úteis após aprovação do projeto executivo\n\n✅ *Como aprovar:* Basta responder *"ORÇAMENTO APROVADO"* aqui mesmo no WhatsApp. Na visita técnica à obra, nosso colaborador levará o contrato impresso em 2 vias já assinado pela Marmoraria B&M (1 via fica com você e 1 via assinada retorna para o escritório).\n\nQualquer dúvida, estamos à disposição!`;
+        msg = [
+          `Olá *${cli}*! Segue o resumo do orçamento do seu pedido solicitado à *Marmoraria B&M*:`,
+          ``,
+          `\u{1F4D0} *Descrição:* ${desc}`,
+          `\u{1F4B0} *Valor do Orçamento:* R$ ${val}`,
+          `\u{23F1} *Prazo de Entrega:* Até ${prazo} dias úteis após aprovação do projeto executivo`,
+          ``,
+          `\u{2705} *Como aprovar:* Basta responder *"ORÇAMENTO APROVADO"* aqui mesmo no WhatsApp. Na visita técnica à obra, nosso colaborador levará o contrato impresso em 2 vias já assinado pela Marmoraria B&M (1 via fica com você e 1 via assinada retorna para o escritório).`,
+          ``,
+          `Qualquer dúvida, estamos à disposição!`
+        ].join('\n');
       } else {
-        msg = `Olá *${cli}*! Segue o resumo do *Contrato Oficial* com a *Marmoraria B&M* (CNPJ: 38.423.684/0001-07):\n\n📐 *Descrição:* ${desc}\n💰 *Valor Total Acordado:* R$ ${val}\n⏱️ *Prazo de Entrega:* Até ${prazo} dias úteis\n${aprovado ? '✅ *Status:* APROVADO PELO CLIENTE' : ''}\n\nEm seguida enviaremos o arquivo PDF assinado. Agradecemos pela confiança!`;
+        msg = [
+          `Olá *${cli}*! Segue o resumo do *Contrato Oficial* com a *Marmoraria B&M* (CNPJ: 38.423.684/0001-07):`,
+          ``,
+          `\u{1F4D0} *Descrição:* ${desc}`,
+          `\u{1F4B0} *Valor Total Acordado:* R$ ${val}`,
+          `\u{23F1} *Prazo de Entrega:* Até ${prazo} dias úteis`,
+          aprovado ? `\u{2705} *Status:* APROVADO PELO CLIENTE` : null,
+          ``,
+          `Em seguida enviaremos o arquivo PDF assinado. Agradecemos pela confiança!`
+        ].filter(item => item !== null).join('\n');
       }
 
       if (destino === 'empresa') {
