@@ -974,7 +974,7 @@
 
     function abrirWhatsCentral() {
       const msg = "Olá equipe da *Marmoraria B&M*! Vim pelo site e gostaria de solicitar um orçamento.";
-      window.open(`https://wa.me/${WHATS_BM}?text=${encodeURIComponent(msg)}`, '_blank');
+      window.open(`https://api.whatsapp.com/send?phone=${WHATS_BM}&text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     function enviarPedidoCliente() {
@@ -1003,7 +1003,7 @@
         obs ? `\u{1F4D0} *Medidas/Obs:* ${obs}` : null
       ].filter(item => item !== null).join('\n');
 
-      window.open(`https://wa.me/${WHATS_BM}?text=${encodeURIComponent(msg)}`, '_blank');
+      window.open(`https://api.whatsapp.com/send?phone=${WHATS_BM}&text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     // ================= MODO EQUIPE =================
@@ -1098,7 +1098,7 @@
       document.getElementById('outPesoKg').innerText = peso.toFixed(1).replace('.', ',') + ' kg';
       document.getElementById('outAlertaReforco').innerText = peso > 65
         ? '⚠️ Acima de 65 kg — obrigatório uso de mãos-francesas metálicas reforçadas!'
-        : '✅ Peso moderado — suporte padrão adequado.';
+        : '\u{2705} Peso moderado — suporte padrão adequado.';
     }
 
     function calcConv() {
@@ -1184,7 +1184,7 @@
       }
 
       if (destino === 'empresa') {
-        window.open(`https://wa.me/${WHATS_BM}?text=${encodeURIComponent(msg)}`, '_blank');
+        window.open(`https://api.whatsapp.com/send?phone=${WHATS_BM}&text=${encodeURIComponent(msg)}`, '_blank');
       } else {
         window.open(tel ? `https://wa.me/55${tel}?text=${encodeURIComponent(msg)}` : `https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
       }
