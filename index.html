@@ -91,7 +91,7 @@
       <div class="flex items-center gap-3">
         <button onclick="alternarModoEquipe()" id="btnModoEquipe" class="px-3 py-1 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-amber-500/40 text-amber-400 font-bold flex items-center gap-1.5 transition">
           <i class="fa-solid fa-lock"></i>
-          <span>Área da Equipe (Calculadoras & Contrato)</span>
+          <span>Área da Equipe (Orçamento & Contrato)</span>
         </button>
       </div>
     </div>
@@ -267,7 +267,7 @@
       </div>
     </section>
 
-    <!-- CATÁLOGO VISUAL DE PEDRAS (ATUALIZADO CONFORME GRAZY) -->
+    <!-- CATÁLOGO VISUAL DE PEDRAS -->
     <section id="catalogo" class="bg-zinc-900/50 border-y border-zinc-800/80 py-16 px-4">
       <div class="max-w-7xl mx-auto space-y-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -310,7 +310,7 @@
       </div>
     </section>
 
-    <!-- SOLICITADOR DE ORÇAMENTO PARA CLIENTES (MÚLTIPLA ESCOLHA + ACABAMENTOS GRAZY) -->
+    <!-- SOLICITADOR DE ORÇAMENTO GUIADO À PROVA DE ERROS -->
     <section id="simulador-cliente" class="max-w-5xl mx-auto px-4 py-16">
       <div class="bg-zinc-900 rounded-3xl p-6 sm:p-10 border border-zinc-800 shadow-2xl space-y-6">
         <div class="text-center max-w-xl mx-auto space-y-2">
@@ -318,7 +318,7 @@
             <i class="fa-brands fa-whatsapp"></i> Atendimento Oficial Marmoraria B&M
           </span>
           <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Monte Seu Orçamento Sob Medida</h2>
-          <p class="text-xs text-zinc-400">Selecione uma ou mais peças desejadas, escolha a pedra e o acabamento para enviarmos sua cotação.</p>
+          <p class="text-xs text-zinc-400">Marque as peças desejadas abaixo — os campos de medida abrem automaticamente para cada tipo de peça.</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
@@ -336,64 +336,67 @@
           </div>
         </div>
 
-        <!-- MÚLTIPLAS ESCOLHAS DE PROJETO (PEDIDO DA GRAZY) -->
+        <!-- MÚLTIPLAS ESCOLHAS DE PROJETO -->
         <div class="text-xs space-y-2">
-          <label class="font-bold text-zinc-300 block">Quais peças você precisa orçar? (Pode marcar várias opções)</label>
+          <label class="font-bold text-zinc-300 block">1. Quais peças você precisa orçar? (Pode marcar várias opções)</label>
           <div id="gridProjetosCheck" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5">
             <label class="flex items-center gap-2 p-2.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-red-500/50 cursor-pointer">
-              <input type="checkbox" name="cliProjMulti" value="Bancada / Pia" class="accent-red-600 w-4 h-4">
+              <input type="checkbox" name="cliProjMulti" value="Bancada / Pia" data-cat="bancada" onchange="renderizarBlocosMedidas()" class="accent-red-600 w-4 h-4">
               <span>Bancada / Pia</span>
             </label>
             <label class="flex items-center gap-2 p-2.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-red-500/50 cursor-pointer">
-              <input type="checkbox" name="cliProjMulti" value="Bancada Slim" class="accent-red-600 w-4 h-4">
+              <input type="checkbox" name="cliProjMulti" value="Bancada Slim" data-cat="bancada" onchange="renderizarBlocosMedidas()" class="accent-red-600 w-4 h-4">
               <span>Bancada Slim</span>
             </label>
             <label class="flex items-center gap-2 p-2.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-red-500/50 cursor-pointer">
-              <input type="checkbox" name="cliProjMulti" value="Ilha Gourmet" class="accent-red-600 w-4 h-4">
+              <input type="checkbox" name="cliProjMulti" value="Ilha Gourmet" data-cat="bancada" onchange="renderizarBlocosMedidas()" class="accent-red-600 w-4 h-4">
               <span>Ilha Gourmet</span>
             </label>
             <label class="flex items-center gap-2 p-2.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-red-500/50 cursor-pointer">
-              <input type="checkbox" name="cliProjMulti" value="Lavatório (com cuba)" class="accent-red-600 w-4 h-4">
+              <input type="checkbox" name="cliProjMulti" value="Lavatório (com cuba)" data-cat="lavatorio" onchange="renderizarBlocosMedidas()" class="accent-red-600 w-4 h-4">
               <span>Lavatório (c/ cuba)</span>
             </label>
             <label class="flex items-center gap-2 p-2.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-red-500/50 cursor-pointer">
-              <input type="checkbox" name="cliProjMulti" value="Lavatório (sem cuba)" class="accent-red-600 w-4 h-4">
+              <input type="checkbox" name="cliProjMulti" value="Lavatório (sem cuba)" data-cat="lavatorio" onchange="renderizarBlocosMedidas()" class="accent-red-600 w-4 h-4">
               <span>Lavatório (s/ cuba)</span>
             </label>
             <label class="flex items-center gap-2 p-2.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-red-500/50 cursor-pointer">
-              <input type="checkbox" name="cliProjMulti" value="Churrasqueira" class="accent-red-600 w-4 h-4">
+              <input type="checkbox" name="cliProjMulti" value="Churrasqueira" data-cat="bancada" onchange="renderizarBlocosMedidas()" class="accent-red-600 w-4 h-4">
               <span>Churrasqueira</span>
             </label>
             <label class="flex items-center gap-2 p-2.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-red-500/50 cursor-pointer">
-              <input type="checkbox" name="cliProjMulti" value="Escadas" class="accent-red-600 w-4 h-4">
+              <input type="checkbox" name="cliProjMulti" value="Escadas" data-cat="escada" onchange="renderizarBlocosMedidas()" class="accent-red-600 w-4 h-4">
               <span>Escadas</span>
             </label>
             <label class="flex items-center gap-2 p-2.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-red-500/50 cursor-pointer">
-              <input type="checkbox" name="cliProjMulti" value="Soleiras" class="accent-red-600 w-4 h-4">
+              <input type="checkbox" name="cliProjMulti" value="Soleiras" data-cat="linear" onchange="renderizarBlocosMedidas()" class="accent-red-600 w-4 h-4">
               <span>Soleiras</span>
             </label>
             <label class="flex items-center gap-2 p-2.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-red-500/50 cursor-pointer">
-              <input type="checkbox" name="cliProjMulti" value="Peitoril / Janela" class="accent-red-600 w-4 h-4">
+              <input type="checkbox" name="cliProjMulti" value="Peitoril / Janela" data-cat="linear" onchange="renderizarBlocosMedidas()" class="accent-red-600 w-4 h-4">
               <span>Peitoril / Janela</span>
             </label>
             <label class="flex items-center gap-2 p-2.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-red-500/50 cursor-pointer">
-              <input type="checkbox" name="cliProjMulti" value="Nichos" class="accent-red-600 w-4 h-4">
+              <input type="checkbox" name="cliProjMulti" value="Nichos" data-cat="nicho" onchange="renderizarBlocosMedidas()" class="accent-red-600 w-4 h-4">
               <span>Nichos</span>
             </label>
             <label class="flex items-center gap-2 p-2.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-red-500/50 cursor-pointer">
-              <input type="checkbox" name="cliProjMulti" value="Borda de Piscina" class="accent-red-600 w-4 h-4">
+              <input type="checkbox" name="cliProjMulti" value="Borda de Piscina" data-cat="linear" onchange="renderizarBlocosMedidas()" class="accent-red-600 w-4 h-4">
               <span>Borda de Piscina</span>
             </label>
             <label class="flex items-center gap-2 p-2.5 rounded-xl bg-zinc-950 border border-zinc-800 hover:border-red-500/50 cursor-pointer">
-              <input type="checkbox" name="cliProjMulti" value="Túmulos" class="accent-red-600 w-4 h-4">
+              <input type="checkbox" name="cliProjMulti" value="Túmulos" data-cat="tumulo" onchange="renderizarBlocosMedidas()" class="accent-red-600 w-4 h-4">
               <span>Túmulos</span>
             </label>
           </div>
         </div>
 
+        <!-- BLOCOS DINÂMICOS DE MEDIDAS GUIADAS POR PEÇA (À PROVA DE ERROS) -->
+        <div id="containerBlocosMedidas" class="space-y-4"></div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
           <div>
-            <label class="font-bold text-zinc-300 block mb-1.5">Pedra / Material de Preferência</label>
+            <label class="font-bold text-zinc-300 block mb-1.5">2. Pedra / Material de Preferência</label>
             <select id="cliPedra" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3.5 py-3 text-white">
               <option value="Ainda quero orientação técnica">Ainda quero orientação técnica</option>
               <option value="Granito Preto São Gabriel">Granito Preto São Gabriel</option>
@@ -408,7 +411,7 @@
             </select>
           </div>
           <div>
-            <label class="font-bold text-zinc-300 block mb-1.5">Acabamento de Borda</label>
+            <label class="font-bold text-zinc-300 block mb-1.5">3. Acabamento de Borda</label>
             <select id="cliBorda" onchange="atualizarExplicacaoBorda()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3.5 py-3 text-white">
               <option value="1/2 Esquadria (45°)">1/2 Esquadria (45°)</option>
               <option value="Reto Duplo">Reto Duplo</option>
@@ -420,15 +423,15 @@
           </div>
         </div>
 
-        <!-- Explicação Visual do Acabamento de Borda para Leigos -->
+        <!-- Explicação Visual do Acabamento de Borda -->
         <div id="boxExplicacaoBorda" class="p-3.5 rounded-2xl bg-zinc-950 border border-amber-500/30 text-xs text-zinc-300 flex items-start gap-2.5">
           <i class="fa-solid fa-circle-info text-amber-400 text-sm mt-0.5"></i>
           <div id="textoExplicacaoBorda"></div>
         </div>
 
         <div class="text-xs">
-          <label class="font-bold text-zinc-300 block mb-1.5">Medidas Aproximadas ou Observações (Opcional)</label>
-          <textarea id="cliObs" rows="3" placeholder="Ex: Bancada em L com 2,40m x 1,60m, espaço para cooktop e cuba inox..." class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500"></textarea>
+          <label class="font-bold text-zinc-300 block mb-1.5">Observações Adicionais (Opcional)</label>
+          <textarea id="cliObs" rows="2" placeholder="Ex: Já tenho a cuba no local, obra em fase de acabamento..." class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500"></textarea>
         </div>
 
         <div class="pt-2">
@@ -476,206 +479,31 @@
   </div>
 
   <!-- ===================================================================== -->
-  <!-- MODO 2: ÁREA RESTRITA DA EQUIPE B&M                                   -->
+  <!-- MODO 2: ÁREA RESTRITA DA EQUIPE B&M (INTEGRAÇÃO SYSMARM + CONTRATO)   -->
   <!-- ===================================================================== -->
-  <div id="visao-equipe" class="hidden max-w-7xl mx-auto px-4 py-8 space-y-8">
+  <div id="visao-equipe" class="hidden max-w-7xl mx-auto px-4 py-8 space-y-6">
     <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3 no-print">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-amber-500 text-black flex items-center justify-center font-bold">
-          <i class="fa-solid fa-toolbox"></i>
+          <i class="fa-solid fa-file-signature"></i>
         </div>
         <div>
-          <h2 class="font-bold text-sm text-amber-300">Painel Interno Exclusivo — Equipe Marmoraria B&M</h2>
-          <p class="text-xs text-zinc-400">Calculadoras técnicas, resposta rápida de agendamento e emissão de Orçamento / Contrato Oficial (2 vias).</p>
+          <h2 class="font-bold text-sm text-amber-300">Painel Interno — Emissor Rápido SysMarm & Contrato (2 Vias)</h2>
+          <p class="text-xs text-zinc-400">Calcule normalmente no SysMarm e cole aqui os dados finais para enviar no WhatsApp ou imprimir o contrato em 1 página.</p>
         </div>
       </div>
       <div class="flex items-center gap-2 flex-wrap">
-        <button onclick="toggleManualEquipe()" id="btnManualEquipe" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-black text-xs font-extrabold transition flex items-center gap-1.5">
-          <i class="fa-solid fa-book-open"></i>
-          <span>Manual & Explicação das Calculadoras</span>
-        </button>
         <button onclick="voltarVitrine()" class="px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-bold transition">
           <i class="fa-solid fa-eye mr-1"></i>Voltar ao Site Público
         </button>
       </div>
     </div>
 
-    <!-- MANUAL COMPLETO DA EQUIPE -->
-    <div id="boxManualEquipe" class="hidden bg-zinc-900 rounded-3xl p-6 sm:p-8 border border-amber-500/40 space-y-6 text-xs no-print">
-      <div class="flex items-center justify-between border-b border-zinc-800 pb-4">
-        <div>
-          <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400">Guia Operacional • Marmoraria B&M</span>
-          <h3 class="font-display text-2xl font-bold text-white mt-0.5">Manual das Calculadoras & Fluxo Interno</h3>
-        </div>
-        <button onclick="toggleManualEquipe()" class="px-3 py-1.5 rounded-lg bg-zinc-800 text-zinc-300 hover:text-white font-bold">Fechar Manual ✕</button>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="p-4 rounded-2xl bg-zinc-950 border border-zinc-800 space-y-1.5">
-          <h4 class="font-bold text-sm text-red-400">1. Cálculo de Preço de Venda (m² + Acabamento)</h4>
-          <p class="text-zinc-300"><strong>Fórmula:</strong> <code>[(Comp × Larg × (1 + Perda%)) × R$/m²] + [(Comp + Larg) × R$/ml] + Instalação</code>.</p>
-          <p class="text-zinc-400">Calcula o preço final já com margem de quebra/recorte e joga direto no Orçamento/Contrato com 1 clique.</p>
-        </div>
-        <div class="p-4 rounded-2xl bg-zinc-950 border border-zinc-800 space-y-1.5">
-          <h4 class="font-bold text-sm text-amber-400">2. Aproveitamento de Chapa Bruta</h4>
-          <p class="text-zinc-400">Testa o corte na horizontal e vertical para mostrar quantas peças cabem na chapa bruta e o % exato de aproveitamento e retalho.</p>
-        </div>
-        <div class="p-4 rounded-2xl bg-zinc-950 border border-zinc-800 space-y-1.5">
-          <h4 class="font-bold text-sm text-rose-400">3. Peso da Bancada & Mãos-Francesas</h4>
-          <p class="text-zinc-400">Calcula o peso pela densidade da rocha (2.750 kg/m³) e alerta quando passa de 65 kg para exigir mãos-francesas metálicas.</p>
-        </div>
-        <div class="p-4 rounded-2xl bg-zinc-950 border border-zinc-800 space-y-1.5">
-          <h4 class="font-bold text-sm text-sky-400">4. Conversor de Unidades (m / cm / mm / pol)</h4>
-          <p class="text-zinc-400">Converte instantaneamente medidas de plantas de arquitetos e marceneiros entre milímetros, centímetros, metros e polegadas.</p>
-        </div>
-      </div>
-
-      <div class="p-4 rounded-2xl bg-zinc-950 border border-emerald-500/30 space-y-1.5">
-        <h4 class="font-bold text-sm text-emerald-400">Fluxo Definido pela Equipe B&M (Escritório + Medidor na Obra)</h4>
-        <p class="text-zinc-300">1. O cliente envia a solicitação pelo site direto no WhatsApp Business da empresa.<br>
-        2. O escritório responde com o botão <strong>"Enviar Confirmação de Agendamento"</strong> (<em>"Estaremos agendando um horário com o medidor para conferir medidas do projeto."</em>).<br>
-        3. Após a medição, o escritório preenche o <strong>Gerador de Orçamento & Contrato</strong> (com CNPJ 38.423.684/0001-07), imprime em <strong>2 vias</strong> para o medidor levar ao cliente assinar (ou coleta assinatura digital na tela caso Grazy/Gisele/Michel/Bruno estejam no local).</p>
-      </div>
-    </div>
-
-    <!-- Grid das 4 Calculadoras de Fábrica -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 no-print">
-      <!-- 1. Calculadora de Preço de Venda por m² -->
-      <div class="bg-zinc-900 rounded-2xl p-6 border border-zinc-800 space-y-4 text-xs">
-        <div>
-          <span class="text-[11px] font-bold uppercase text-red-400">Calculadora 1 • Formação de Preço</span>
-          <h3 class="font-display text-lg font-bold text-white">Cálculo de Preço de Venda (m² + Acabamento)</h3>
-        </div>
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="text-zinc-400 block mb-1">Material (R$/m²)</label>
-            <input type="number" id="eqM2" value="650" oninput="calcPrecoEquipe()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white font-bold">
-          </div>
-          <div>
-            <label class="text-zinc-400 block mb-1">Perda / Quebra (%)</label>
-            <input type="number" id="eqPerda" value="12" oninput="calcPrecoEquipe()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white font-bold">
-          </div>
-          <div>
-            <label class="text-zinc-400 block mb-1">Comp. (cm)</label>
-            <input type="number" id="eqComp" value="220" oninput="calcPrecoEquipe()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white">
-          </div>
-          <div>
-            <label class="text-zinc-400 block mb-1">Largura (cm)</label>
-            <input type="number" id="eqLarg" value="60" oninput="calcPrecoEquipe()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white">
-          </div>
-          <div>
-            <label class="text-zinc-400 block mb-1">Acabamento Borda (R$/ml)</label>
-            <input type="number" id="eqMlPreco" value="85" oninput="calcPrecoEquipe()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white">
-          </div>
-          <div>
-            <label class="text-zinc-400 block mb-1">Instalação / Frete (R$)</label>
-            <input type="number" id="eqInst" value="180" oninput="calcPrecoEquipe()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white">
-          </div>
-        </div>
-        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-between gap-2">
-          <div>
-            <span class="text-zinc-400 block">Área c/ Perda: <strong id="eqAreaOut" class="text-white">1,48 m²</strong></span>
-            <span class="text-zinc-400 block">Valor Final Sugerido:</span>
-          </div>
-          <div class="text-right space-y-1">
-            <strong id="eqTotalOut" class="font-display text-2xl font-extrabold text-emerald-400 block">R$ 1.378,76</strong>
-            <button type="button" onclick="transferirParaContrato()" class="px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-500 text-white text-[11px] font-bold transition">
-              Jogar no Orçamento / Contrato ↓
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2. Otimizador de Aproveitamento de Chapa -->
-      <div class="bg-zinc-900 rounded-2xl p-6 border border-zinc-800 space-y-4 text-xs">
-        <div>
-          <span class="text-[11px] font-bold uppercase text-amber-400">Calculadora 2 • Corte & Retalho</span>
-          <h3 class="font-display text-lg font-bold text-white">Aproveitamento de Chapa Bruta</h3>
-        </div>
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="text-zinc-400 block mb-1">Chapa Comp. (cm)</label>
-            <input type="number" id="chapaL" value="280" oninput="calcChapa()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white font-bold">
-          </div>
-          <div>
-            <label class="text-zinc-400 block mb-1">Chapa Alt. (cm)</label>
-            <input type="number" id="chapaA" value="160" oninput="calcChapa()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white font-bold">
-          </div>
-          <div>
-            <label class="text-zinc-400 block mb-1">Peça Comp. (cm)</label>
-            <input type="number" id="pecaL" value="135" oninput="calcChapa()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white">
-          </div>
-          <div>
-            <label class="text-zinc-400 block mb-1">Peça Larg. (cm)</label>
-            <input type="number" id="pecaA" value="60" oninput="calcChapa()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white">
-          </div>
-        </div>
-        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-1">
-          <p>Capacidade por Chapa (<span id="outChapaArea">4,48 m²</span>): <strong id="outQtdPecas" class="text-emerald-400">4 peça(s)</strong></p>
-          <p>Aproveitamento Útil: <strong id="outAproveit" class="text-amber-400">72,3%</strong> • Retalho: <span id="outRetalho">27,7%</span></p>
-        </div>
-      </div>
-
-      <!-- 3. Calculadora de Peso & Reforço -->
-      <div class="bg-zinc-900 rounded-2xl p-6 border border-zinc-800 space-y-4 text-xs">
-        <div>
-          <span class="text-[11px] font-bold uppercase text-red-400">Calculadora 3 • Instalação</span>
-          <h3 class="font-display text-lg font-bold text-white">Peso da Bancada & Mãos-Francesas</h3>
-        </div>
-        <div class="grid grid-cols-3 gap-3">
-          <div>
-            <label class="text-zinc-400 block mb-1">Comp. (cm)</label>
-            <input type="number" id="pesoC" value="240" oninput="calcPeso()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white font-bold">
-          </div>
-          <div>
-            <label class="text-zinc-400 block mb-1">Larg. (cm)</label>
-            <input type="number" id="pesoL" value="65" oninput="calcPeso()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white font-bold">
-          </div>
-          <div>
-            <label class="text-zinc-400 block mb-1">Espessura</label>
-            <select id="pesoEsp" onchange="calcPeso()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-2 py-2 text-white">
-              <option value="2">2 cm</option>
-              <option value="3">3 cm</option>
-              <option value="4">4 cm</option>
-            </select>
-          </div>
-        </div>
-        <div class="p-4 rounded-xl bg-zinc-950 border border-zinc-800">
-          <p>Peso Estimado: <strong id="outPesoKg" class="text-xl text-white">85,8 kg</strong></p>
-          <p id="outAlertaReforco" class="text-amber-400 font-semibold mt-1"></p>
-        </div>
-      </div>
-
-      <!-- 4. Conversor de Unidades -->
-      <div class="bg-zinc-900 rounded-2xl p-6 border border-zinc-800 space-y-4 text-xs">
-        <div>
-          <span class="text-[11px] font-bold uppercase text-sky-400">Calculadora 4 • Projetos</span>
-          <h3 class="font-display text-lg font-bold text-white">Conversor de Unidades (m / cm / mm / pol)</h3>
-        </div>
-        <div class="grid grid-cols-2 gap-3">
-          <div>
-            <label class="text-zinc-400 block mb-1">Medida</label>
-            <input type="number" id="convVal" value="2.40" step="0.01" oninput="calcConv()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white font-bold">
-          </div>
-          <div>
-            <label class="text-zinc-400 block mb-1">Unidade</label>
-            <select id="convUn" onchange="calcConv()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white">
-              <option value="m">Metros (m)</option>
-              <option value="cm">Centímetros (cm)</option>
-              <option value="mm">Milímetros (mm)</option>
-              <option value="in">Polegadas (in)</option>
-            </select>
-          </div>
-        </div>
-        <div id="outConv" class="p-4 rounded-xl bg-zinc-950 border border-zinc-800 grid grid-cols-2 gap-2 font-semibold text-zinc-300"></div>
-      </div>
-    </div>
-
     <!-- GERADOR DE ORÇAMENTO & CONTRATO OFICIAL B&M -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-4">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
       <div class="lg:col-span-5 bg-zinc-900 rounded-2xl p-6 border border-zinc-800 space-y-3.5 text-xs no-print">
         <div>
-          <span class="text-[11px] font-bold uppercase text-emerald-400">Escritório & Obra • Emissão em 2 Vias</span>
+          <span class="text-[11px] font-bold uppercase text-emerald-400">Integração SysMarm • Envio & 2 Vias</span>
           <h3 class="font-display text-xl font-bold text-white">Gerador de Orçamento & Contrato</h3>
         </div>
         <div class="grid grid-cols-2 gap-2.5">
@@ -687,8 +515,8 @@
             </select>
           </div>
           <div>
-            <label class="text-zinc-400 block mb-1">Nº Pedido / Ref.</label>
-            <input type="text" id="ctPedido" oninput="atualizarContrato()" placeholder="Ex: 12484" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+            <label class="text-zinc-400 block mb-1">Nº Orçamento SysMarm</label>
+            <input type="text" id="ctPedido" oninput="atualizarContrato()" placeholder="Ex: 12499" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white font-bold">
           </div>
         </div>
         <div>
@@ -710,16 +538,16 @@
           <input type="text" id="ctEnd" oninput="atualizarContrato()" placeholder="Rua, nº, Bairro - Guaiçara/SP" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white">
         </div>
         <div>
-          <label class="text-zinc-400 block mb-1">Descrição das Peças & Materiais</label>
-          <textarea id="ctDesc" rows="3" oninput="atualizarContrato()" placeholder="Descreva as peças, pedra escolhida e acabamentos (ou transfira da Calculadora 1)..." class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white"></textarea>
+          <label class="text-zinc-400 block mb-1">Resumo das Peças (Cole do SysMarm ou resuma)</label>
+          <textarea id="ctDesc" rows="3" oninput="atualizarContrato()" placeholder="Ex: Pia retangular + Tampo Preto São Gabriel (1,20x1,60m), frontão 10cm, saia 6cm c/ 1/2 esquadria e cuba nº 2..." class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white"></textarea>
         </div>
         <div class="grid grid-cols-3 gap-2.5">
           <div>
-            <label class="text-zinc-400 block mb-1">Valor Total (R$)</label>
-            <input type="text" id="ctVal" value="" placeholder="0,00" oninput="atualizarContrato()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white font-bold">
+            <label class="text-zinc-400 block mb-1">Total Geral (R$)</label>
+            <input type="text" id="ctVal" value="" placeholder="2.888,00" oninput="atualizarContrato()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-emerald-400 font-bold">
           </div>
           <div>
-            <label class="text-zinc-400 block mb-1">Prazo (dias úteis) até</label>
+            <label class="text-zinc-400 block mb-1">Prazo (dias úteis)</label>
             <input type="number" id="ctPrazo" value="20" oninput="atualizarContrato()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-white">
           </div>
           <div>
@@ -739,7 +567,7 @@
           </select>
         </div>
 
-        <!-- Botão de Resposta Padrão de Agendamento (Pedido da Grazy) -->
+        <!-- Botão de Resposta Padrão de Agendamento -->
         <button type="button" onclick="enviarConfirmacaoMedidor()" class="w-full py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs flex items-center justify-center gap-2 transition">
           <i class="fa-solid fa-calendar-check"></i>
           <span>Enviar Frase Padrão: Agendar Medidor no WhatsApp</span>
@@ -754,7 +582,7 @@
         <!-- Assinatura Digital Opcional na Tela -->
         <div class="pt-1 border-t border-zinc-800 space-y-1.5">
           <div class="flex items-center justify-between">
-            <label class="font-bold text-amber-400">Assinatura na Tela (Opcional — se estiver no tablet/celular):</label>
+            <label class="font-bold text-amber-400">Assinatura na Tela (Opcional — tablet/celular):</label>
             <button type="button" onclick="limparAssinaturaBM()" class="text-rose-400 hover:underline font-bold">Limpar</button>
           </div>
           <canvas id="canvasBM" class="w-full h-24 bg-white rounded-xl cursor-crosshair"></canvas>
@@ -782,10 +610,10 @@
             <div>
               <h2 class="font-display text-xl font-extrabold text-zinc-900">MARMORARIA <span class="text-red-600">B&M</span></h2>
               <p class="text-[10px] font-bold text-zinc-600">MARMORARIA BM LTDA • CNPJ: 38.423.684/0001-07</p>
-              <p class="text-[10px] text-zinc-500">Rua/Av. Manoel Rodrigues, nº 35-B • Vila da Saúde • Guaiçara - SP</p>
+              <p class="text-[10px] text-zinc-500">Av. Angelin Frizze, 35-B • Vila da Saúde • Guaiçara - SP</p>
             </div>
             <div class="text-right text-[10px] text-zinc-700">
-              <p><strong>Ref. Pedido:</strong> <span id="outCtPedido">______</span></p>
+              <p><strong>Orç. SysMarm Nº:</strong> <span id="outCtPedido">______</span></p>
               <p><strong>Data:</strong> <span id="outCtData"></span></p>
             </div>
           </div>
@@ -804,13 +632,13 @@
 
           <div class="grid grid-cols-2 gap-2 bg-zinc-100 p-3 rounded-xl">
             <p><strong id="outCtLabelVal">Valor do Orçamento:</strong> R$ <span id="outCtVal">0,00</span></p>
-            <p><strong>Prazo de Entrega:</strong> Até <span id="outCtPrazo">20</span> dias úteis após proj. executivo</p>
+            <p><strong>Prazo de Entrega:</strong> Até <span id="outCtPrazo">20</span> dias úteis do fechamento</p>
             <p><strong>Instalação:</strong> <span id="outCtColocacao">Com colocação inclusa</span></p>
             <p><strong>Pagamento:</strong> <span id="outCtPagto">50% entrada + 50% na entrega</span></p>
           </div>
 
           <div class="text-[10px] text-zinc-700 space-y-1.5 text-justify leading-snug">
-            <p><strong>2. Medição Técnica, Projeto Executivo e Obra:</strong> As medidas finais serão conferidas pela CONTRATADA em até 03 dias úteis após o sinal, enviando-se o projeto executivo em até 05 dias úteis. Cubas, torneiras, cooktops e plantas hidráulicas/elétricas/gás devem estar no local no dia da medição. Estruturação de sustentação (alvenaria/metálica) e içamento de peças grandes são de responsabilidade do CONTRATANTE. Para aprovação remota de orçamento, responda <strong>"ORÇAMENTO APROVADO"</strong> no WhatsApp; na visita técnica será entregue este contrato em <strong>2 vias impressas</strong> (1 via do cliente e 1 via do escritório).</p>
+            <p><strong>2. Medição Técnica, Projeto Executivo e Obra:</strong> As medidas finais serão conferidas pela CONTRATADA em até 03 dias úteis após o sinal, enviando-se o projeto executivo em até 05 dias úteis. Cubas, torneiras, cooktops e plantas hidráulicas/elétricas/gás devem estar no local no dia da medição. Estruturação de sustentação (alvenaria/metálica) e içamento de peças grandes são de responsabilidade do CONTRATANTE. Para aprovação remota de orçamento (validade 90 dias), responda <strong>"ORÇAMENTO APROVADO"</strong> no WhatsApp; na visita técnica será entregue este contrato em <strong>2 vias impressas</strong> (1 via do cliente e 1 via do escritório).</p>
             <p><strong>3. Pagamento e Cancelamento:</strong> Atraso no pagamento acarreta multa de 10%. Conforme Art. 49 do CDC, o CONTRATANTE tem até 07 dias da assinatura para desistência antes da aprovação do projeto executivo. Cancelamento após medição técnica implica multa de 15%; após aprovação do projeto executivo e corte das pedras, multa de 70% sobre o pedido (estornando-se apenas a mão de obra de instalação). Descumprimento contratual sujeita a parte infratora à multa de 20%.</p>
             <p><strong>4. Características dos Materiais, Uso e Garantia (6 Meses):</strong> Rochas naturais (mármores, granitos e quartzitos) possuem variações únicas de veios, poros e tonalidades próprias da natureza; compostos industrializados também podem variar entre lotes. <strong>Cuidados:</strong> Mármores têm baixa resistência a manchas/ácidos; Granitos têm média resistência; Quartzos têm alta resistência, mas não suportam sol/calor direto (panelas quentes) e linhas como <em>Quartzo Zeus</em> podem apresentar absorção de líquidos/manchas se não limpos imediatamente com pano úmido e sabão neutro. A CONTRATADA oferece <strong>6 (seis) meses de garantia</strong> sobre os serviços de instalação, excluindo-se mau uso, impactos, sobrecarga, choque térmico ou produtos abrasivos/cloro.</p>
             <p id="clausulaForo" class="hidden"><strong>5. Foro Privilegiado:</strong> Fica eleito o Foro da Comarca de <strong>Lins - SP</strong> para dirimir quaisquer litígios oriundos deste instrumento, assinando as partes em 2 (duas) vias de igual teor.</p>
@@ -842,7 +670,7 @@
       <div class="space-y-2">
         <span class="font-display text-lg font-extrabold text-white">MARMORARIA <span class="text-red-500">B&M</span></span>
         <p class="text-zinc-500">MARMORARIA BM LTDA • CNPJ: 38.423.684/0001-07</p>
-        <p class="text-zinc-500">Rua/Av. Manoel Rodrigues, nº 35-B • Vila da Saúde • Guaiçara - SP</p>
+        <p class="text-zinc-500">Av. Angelin Frizze, 35-B • Vila da Saúde • Guaiçara - SP</p>
       </div>
       <div class="space-y-1.5">
         <strong class="text-white uppercase tracking-wider block">Atendimento & Horários</strong>
@@ -862,7 +690,6 @@
     </div>
   </footer>
 
-
   <!-- MODAL POLÍTICAS INSTITUCIONAIS B&M -->
   <div id="modalPoliticas" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 no-print">
     <div class="bg-zinc-900 border border-zinc-700 rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-4 text-xs shadow-2xl max-h-[85vh] overflow-y-auto">
@@ -881,13 +708,8 @@
   </button>
 
   <script>
-    // =========================================================================
-    // NÚMERO CENTRAL DO WHATSAPP BUSINESS (ATUALMENTE SEU NÚMERO PARA TESTES)
-    // Assim que a Grazy/Michel ativarem o chip novo da Vivo, trocar aqui!
-    // =========================================================================
     const WHATS_BM = "5514998955624";
 
-    // Proteção básica anti-cópia
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('keydown', e => {
       if ((e.ctrlKey || e.metaKey) && ['u', 's', 'c'].includes(e.key.toLowerCase()) && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
@@ -910,7 +732,6 @@
       document.getElementById('textoExplicacaoBorda').innerHTML = EXPLICACOES_BORDA[val] || "";
     }
 
-    // Catálogo atualizado com as observações exatas da Grazy
     const PEDRAS = [
       { nome: "Preto São Gabriel", cat: "Granito", css: "stone-sao-gabriel", uso: "Cozinhas, Ilhas e Áreas Gourmet", desc: "Alta resistência a riscos, calor e baixa absorção. Visual sofisticado e uniforme." },
       { nome: "Granito Via Láctea", cat: "Granito", css: "stone-via-lactea", uso: "Cozinhas Modernas e Bancadas", desc: "Fundo preto intenso com veios brancos naturais marcantes e altíssima durabilidade." },
@@ -960,6 +781,7 @@
       document.querySelectorAll('input[name="cliProjMulti"]').forEach(cb => {
         if (cb.value === valor) cb.checked = true;
       });
+      renderizarBlocosMedidas();
     }
 
     function selecionarPedraCliente(pedraNome) {
@@ -970,6 +792,342 @@
           break;
         }
       }
+    }
+
+    // Conversor inteligente: normaliza se usuário digitar em metros (ex: 2.40) ou centímetros (240)
+    function formatarMedidaSegura(raw) {
+      if (!raw) return null;
+      const num = parseFloat(String(raw).replace(',', '.'));
+      if (isNaN(num) || num <= 0) return null;
+      const cm = num < 15 ? Math.round(num * 100) : Math.round(num);
+      const metros = (cm / 100).toFixed(2).replace('.', ',');
+      return { cm, metros, texto: `${metros}m (${cm}cm)` };
+    }
+
+    function previewCm(inputEl, spanId) {
+      const span = document.getElementById(spanId);
+      if (!span) return;
+      const res = formatarMedidaSegura(inputEl.value);
+      span.innerText = res ? `= ${res.metros} m` : '';
+    }
+
+    function slugify(str) {
+      return str.toLowerCase().replace(/[^a-z0-9]/g, '_');
+    }
+
+    function renderizarBlocosMedidas() {
+      const container = document.getElementById('containerBlocosMedidas');
+      const marcados = Array.from(document.querySelectorAll('input[name="cliProjMulti"]:checked'));
+      if (marcados.length === 0) {
+        container.innerHTML = '';
+        return;
+      }
+
+      container.innerHTML = marcados.map(cb => {
+        const nome = cb.value;
+        const cat = cb.dataset.cat;
+        const id = slugify(nome);
+
+        if (cat === 'bancada') {
+          return `
+            <div class="p-4 sm:p-5 rounded-2xl bg-zinc-950 border border-red-500/40 space-y-3 text-xs" data-bloco="${nome}" data-cat="bancada" data-id="${id}">
+              <div class="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-800 pb-2.5">
+                <strong class="text-sm text-white flex items-center gap-2"><i class="fa-solid fa-ruler-combined text-red-500"></i> Medidas & Detalhes: ${nome}</strong>
+                <span class="text-[11px] text-amber-400 font-semibold">Informe em centímetros (ex: 240 = 2,40m)</span>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="text-zinc-300 font-bold block mb-1">Formato da Bancada *</label>
+                  <select id="fmt_${id}" onchange="alternarFormatoBancada('${id}')" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2.5 text-white font-semibold">
+                    <option value="Reta">Reta (1 parede / trecho)</option>
+                    <option value="Em L">Em L (2 lados / canto)</option>
+                    <option value="Em U">Em U (3 lados)</option>
+                    <option value="Ilha Central">Ilha Central / Balcão Livre</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="text-zinc-300 font-bold block mb-1">Posição na Parede (Define Frontão/Saia) *</label>
+                  <select id="pos_${id}" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2.5 text-white font-semibold">
+                    <option value="Encostada na parede (com frontão)">Encostada na parede (leva frontão)</option>
+                    <option value="Livre / Ilha (acabamento nos 2 lados)">Livre / Ilha (acabamento nos 2 lados)</option>
+                    <option value="1 lado na parede + 1 lado livre (península)">Península (1 ponta na parede, lados livres)</option>
+                    <option value="A definir na medição">A definir na medição</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Trecho 1 (Sempre visível) -->
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="text-zinc-400 block mb-1"><span id="lbl_c1_${id}">Comprimento (cm)</span> <span id="pv_c1_${id}" class="text-emerald-400 font-bold ml-1"></span></label>
+                  <input type="number" step="any" id="c1_${id}" oninput="previewCm(this, 'pv_c1_${id}')" placeholder="Ex: 240" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                </div>
+                <div>
+                  <label class="text-zinc-400 block mb-1">Profundidade / Largura (cm) <span id="pv_l1_${id}" class="text-emerald-400 font-bold ml-1"></span></label>
+                  <input type="number" step="any" id="l1_${id}" oninput="previewCm(this, 'pv_l1_${id}')" placeholder="Padrão: 60" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                </div>
+              </div>
+
+              <!-- Trecho 2 (Para L e U) -->
+              <div id="box_t2_${id}" class="hidden grid grid-cols-2 gap-3 pt-1 border-t border-zinc-800/80">
+                <div>
+                  <label class="text-zinc-400 block mb-1"><span id="lbl_c2_${id}">Lado B - Comprimento (cm)</span> <span id="pv_c2_${id}" class="text-emerald-400 font-bold ml-1"></span></label>
+                  <input type="number" step="any" id="c2_${id}" oninput="previewCm(this, 'pv_c2_${id}')" placeholder="Ex: 160" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                </div>
+                <div>
+                  <label class="text-zinc-400 block mb-1">Lado B - Profundidade (cm) <span id="pv_l2_${id}" class="text-emerald-400 font-bold ml-1"></span></label>
+                  <input type="number" step="any" id="l2_${id}" oninput="previewCm(this, 'pv_l2_${id}')" placeholder="Padrão: 60" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                </div>
+              </div>
+
+              <!-- Trecho 3 (Para U) -->
+              <div id="box_t3_${id}" class="hidden grid grid-cols-2 gap-3 pt-1 border-t border-zinc-800/80">
+                <div>
+                  <label class="text-zinc-400 block mb-1">Lado C - Comprimento (cm) <span id="pv_c3_${id}" class="text-emerald-400 font-bold ml-1"></span></label>
+                  <input type="number" step="any" id="c3_${id}" oninput="previewCm(this, 'pv_c3_${id}')" placeholder="Ex: 180" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                </div>
+                <div>
+                  <label class="text-zinc-400 block mb-1">Lado C - Profundidade (cm) <span id="pv_l3_${id}" class="text-emerald-400 font-bold ml-1"></span></label>
+                  <input type="number" step="any" id="l3_${id}" oninput="previewCm(this, 'pv_l3_${id}')" placeholder="Padrão: 60" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                </div>
+              </div>
+
+              <!-- Recortes -->
+              <div class="pt-1">
+                <label class="text-zinc-400 block mb-1.5">Recortes / Acessórios na peça:</label>
+                <div class="flex flex-wrap gap-3 text-zinc-200">
+                  <label class="flex items-center gap-1.5 cursor-pointer"><input type="checkbox" name="rec_${id}" value="Furação p/ Cuba Inox/Louça" class="accent-red-600"> Cuba Inox/Louça</label>
+                  <label class="flex items-center gap-1.5 cursor-pointer"><input type="checkbox" name="rec_${id}" value="Cuba Esculpida na Pedra" class="accent-red-600"> Cuba Esculpida</label>
+                  <label class="flex items-center gap-1.5 cursor-pointer"><input type="checkbox" name="rec_${id}" value="Recorte p/ Cooktop" class="accent-red-600"> Cooktop</label>
+                  <label class="flex items-center gap-1.5 cursor-pointer"><input type="checkbox" name="rec_${id}" value="Calha Úmida / Torre Tomada" class="accent-red-600"> Calha Úmida / Torre</label>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        if (cat === 'lavatorio') {
+          return `
+            <div class="p-4 sm:p-5 rounded-2xl bg-zinc-950 border border-amber-500/40 space-y-3 text-xs" data-bloco="${nome}" data-cat="lavatorio" data-id="${id}">
+              <div class="flex items-center justify-between border-b border-zinc-800 pb-2">
+                <strong class="text-sm text-white"><i class="fa-solid fa-sink text-amber-400 mr-1.5"></i> Medidas: ${nome}</strong>
+                <span class="text-[11px] text-zinc-400">Medidas em cm</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div>
+                  <label class="text-zinc-400 block mb-1">Qtd. Lavatórios</label>
+                  <input type="number" id="qtd_${id}" value="1" min="1" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                </div>
+                <div>
+                  <label class="text-zinc-400 block mb-1">Comprimento (cm) <span id="pv_c1_${id}" class="text-emerald-400 font-bold ml-1"></span></label>
+                  <input type="number" step="any" id="c1_${id}" oninput="previewCm(this, 'pv_c1_${id}')" placeholder="Ex: 90" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                </div>
+                <div>
+                  <label class="text-zinc-400 block mb-1">Profundidade (cm) <span id="pv_l1_${id}" class="text-emerald-400 font-bold ml-1"></span></label>
+                  <input type="number" step="any" id="l1_${id}" oninput="previewCm(this, 'pv_l1_${id}')" placeholder="Padrão: 50" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                </div>
+              </div>
+              <div>
+                <label class="text-zinc-400 block mb-1">Encaixe nas Paredes</label>
+                <select id="pos_${id}" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                  <option value="Entre 2 paredes (nicho - frente livre)">Entre paredes (apenas frente livre)</option>
+                  <option value="1 lateral livre + fundo na parede">Canto (fundo e 1 lateral na parede)</option>
+                  <option value="2 laterais livres (só fundo na parede)">Suspenso (2 laterais livres)</option>
+                </select>
+              </div>
+            </div>
+          `;
+        }
+
+        if (cat === 'escada') {
+          return `
+            <div class="p-4 sm:p-5 rounded-2xl bg-zinc-950 border border-sky-500/40 space-y-3 text-xs" data-bloco="${nome}" data-cat="escada" data-id="${id}">
+              <div class="flex items-center justify-between border-b border-zinc-800 pb-2">
+                <strong class="text-sm text-white"><i class="fa-solid fa-stairs text-sky-400 mr-1.5"></i> Detalhes: ${nome}</strong>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div>
+                  <label class="text-zinc-400 block mb-1">Qtd. de Degraus</label>
+                  <input type="number" id="qtd_${id}" placeholder="Ex: 16" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                </div>
+                <div>
+                  <label class="text-zinc-400 block mb-1">Largura do Degrau (cm) <span id="pv_c1_${id}" class="text-emerald-400 font-bold ml-1"></span></label>
+                  <input type="number" step="any" id="c1_${id}" oninput="previewCm(this, 'pv_c1_${id}')" placeholder="Ex: 100" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                </div>
+                <div>
+                  <label class="text-zinc-400 block mb-1">Tipo de Revestimento</label>
+                  <select id="pos_${id}" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                    <option value="Pisada + Espelho">Pisada + Espelho</option>
+                    <option value="Somente Pisada (escada vazada)">Somente Pisada (vazada)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        if (cat === 'nicho') {
+          return `
+            <div class="p-4 sm:p-5 rounded-2xl bg-zinc-950 border border-purple-500/40 space-y-3 text-xs" data-bloco="${nome}" data-cat="nicho" data-id="${id}">
+              <strong class="text-sm text-white block border-b border-zinc-800 pb-2"><i class="fa-regular fa-square text-purple-400 mr-1.5"></i> Medidas: ${nome}</strong>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div>
+                  <label class="text-zinc-400 block mb-1">Quantidade</label>
+                  <input type="number" id="qtd_${id}" value="1" min="1" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                </div>
+                <div>
+                  <label class="text-zinc-400 block mb-1">Largura × Altura (cm)</label>
+                  <input type="text" id="med_${id}" placeholder="Ex: 60 x 30 cm" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                </div>
+                <div>
+                  <label class="text-zinc-400 block mb-1">Acabamento</label>
+                  <select id="pos_${id}" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                    <option value="Com moldura / aba externa">Com moldura (aba)</option>
+                    <option value="Sem moldura (rente ao revestimento)">Sem moldura (rente)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        if (cat === 'tumulo') {
+          return `
+            <div class="p-4 sm:p-5 rounded-2xl bg-zinc-950 border border-zinc-700 space-y-3 text-xs" data-bloco="${nome}" data-cat="tumulo" data-id="${id}">
+              <strong class="text-sm text-white block border-b border-zinc-800 pb-2">Detalhes: ${nome}</strong>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="text-zinc-400 block mb-1">Tipo de Serviço</label>
+                  <select id="pos_${id}" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                    <option value="Revestimento Completo">Revestimento Completo</option>
+                    <option value="Apenas Tampo / Lápide">Apenas Tampo / Lápide</option>
+                    <option value="Reforma / Acessórios">Reforma / Floreira</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="text-zinc-400 block mb-1">Tamanho / Gavetas</label>
+                  <input type="text" id="med_${id}" placeholder="Ex: Padrão 1 gaveta ou 2,20x1,10m" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        // Default: linear (Soleiras, Peitoril, Borda de Piscina)
+        return `
+          <div class="p-4 sm:p-5 rounded-2xl bg-zinc-950 border border-emerald-500/40 space-y-3 text-xs" data-bloco="${nome}" data-cat="linear" data-id="${id}">
+            <div class="flex items-center justify-between border-b border-zinc-800 pb-2">
+              <strong class="text-sm text-white"><i class="fa-solid fa-arrows-left-right text-emerald-400 mr-1.5"></i> Medidas: ${nome}</strong>
+              <span class="text-[11px] text-zinc-400">Medidas em cm</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div>
+                <label class="text-zinc-400 block mb-1">Qtd. de Peças</label>
+                <input type="number" id="qtd_${id}" value="1" min="1" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+              </div>
+              <div>
+                <label class="text-zinc-400 block mb-1">Comprimento Médio (cm) <span id="pv_c1_${id}" class="text-emerald-400 font-bold ml-1"></span></label>
+                <input type="number" step="any" id="c1_${id}" oninput="previewCm(this, 'pv_c1_${id}')" placeholder="Ex: 82" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+              </div>
+              <div>
+                <label class="text-zinc-400 block mb-1">Largura (cm) <span id="pv_l1_${id}" class="text-emerald-400 font-bold ml-1"></span></label>
+                <input type="number" step="any" id="l1_${id}" oninput="previewCm(this, 'pv_l1_${id}')" placeholder="Ex: 15" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function alternarFormatoBancada(id) {
+      const fmt = document.getElementById(`fmt_${id}`).value;
+      const t2 = document.getElementById(`box_t2_${id}`);
+      const t3 = document.getElementById(`box_t3_${id}`);
+      const lbl1 = document.getElementById(`lbl_c1_${id}`);
+
+      if (fmt === 'Em L') {
+        lbl1.innerText = 'Lado A - Comprimento (cm)';
+        t2.classList.remove('hidden');
+        t3.classList.add('hidden');
+      } else if (fmt === 'Em U') {
+        lbl1.innerText = 'Lado A - Comprimento (cm)';
+        t2.classList.remove('hidden');
+        t3.classList.remove('hidden');
+      } else {
+        lbl1.innerText = 'Comprimento (cm)';
+        t2.classList.add('hidden');
+        t3.classList.add('hidden');
+      }
+      if (fmt === 'Ilha Central') {
+        document.getElementById(`pos_${id}`).value = 'Livre / Ilha (acabamento nos 2 lados)';
+      }
+    }
+
+    function compilarResumoPecas() {
+      const blocos = Array.from(document.querySelectorAll('#containerBlocosMedidas > div'));
+      if (blocos.length === 0) return '• Peças a definir na medição técnica';
+
+      return blocos.map(b => {
+        const nome = b.dataset.bloco;
+        const cat = b.dataset.cat;
+        const id = b.dataset.id;
+
+        if (cat === 'bancada') {
+          const fmt = document.getElementById(`fmt_${id}`).value;
+          const pos = document.getElementById(`pos_${id}`).value;
+          const c1 = formatarMedidaSegura(document.getElementById(`c1_${id}`).value);
+          const l1 = formatarMedidaSegura(document.getElementById(`l1_${id}`).value);
+          const c2 = formatarMedidaSegura(document.getElementById(`c2_${id}`)?.value);
+          const l2 = formatarMedidaSegura(document.getElementById(`l2_${id}`)?.value);
+          const c3 = formatarMedidaSegura(document.getElementById(`c3_${id}`)?.value);
+          const l3 = formatarMedidaSegura(document.getElementById(`l3_${id}`)?.value);
+          const recs = Array.from(document.querySelectorAll(`input[name="rec_${id}"]:checked`)).map(r => r.value);
+
+          let linhas = [`*${nome}* (Formato: ${fmt})`];
+          linhas.push(`   - Posição: ${pos}`);
+          if (c1 || l1) linhas.push(`   - Trecho A: ${c1 ? c1.texto : '?'} (comp.) x ${l1 ? l1.texto : '60cm padrão'} (prof.)`);
+          if (fmt !== 'Reta' && fmt !== 'Ilha Central' && (c2 || l2)) {
+            linhas.push(`   - Trecho B: ${c2 ? c2.texto : '?'} (comp.) x ${l2 ? l2.texto : '60cm padrão'} (prof.)`);
+          }
+          if (fmt === 'Em U' && (c3 || l3)) {
+            linhas.push(`   - Trecho C: ${c3 ? c3.texto : '?'} (comp.) x ${l3 ? l3.texto : '60cm padrão'} (prof.)`);
+          }
+          if (!c1 && !l1) linhas.push(`   - Medidas: A conferir no local`);
+          if (recs.length > 0) linhas.push(`   - Recortes: ${recs.join(', ')}`);
+          return linhas.join('\n');
+        }
+
+        if (cat === 'lavatorio') {
+          const qtd = document.getElementById(`qtd_${id}`).value || 1;
+          const c1 = formatarMedidaSegura(document.getElementById(`c1_${id}`).value);
+          const l1 = formatarMedidaSegura(document.getElementById(`l1_${id}`).value);
+          const pos = document.getElementById(`pos_${id}`).value;
+          const medTxt = (c1 || l1) ? `${c1 ? c1.texto : '?'} x ${l1 ? l1.texto : '50cm padrão'}` : 'A conferir';
+          return `*${nome}* (${qtd} un.) — ${medTxt} | ${pos}`;
+        }
+
+        if (cat === 'escada') {
+          const qtd = document.getElementById(`qtd_${id}`).value || '?';
+          const c1 = formatarMedidaSegura(document.getElementById(`c1_${id}`).value);
+          const pos = document.getElementById(`pos_${id}`).value;
+          return `*${nome}* — ${qtd} degraus | Largura: ${c1 ? c1.texto : 'A conferir'} | ${pos}`;
+        }
+
+        if (cat === 'nicho' || cat === 'tumulo') {
+          const qtd = document.getElementById(`qtd_${id}`)?.value;
+          const med = document.getElementById(`med_${id}`)?.value || 'Padrão / A conferir';
+          const pos = document.getElementById(`pos_${id}`)?.value;
+          return `*${nome}*${qtd ? ` (${qtd} un.)` : ''} — ${med} | ${pos}`;
+        }
+
+        // linear
+        const qtd = document.getElementById(`qtd_${id}`).value || 1;
+        const c1 = formatarMedidaSegura(document.getElementById(`c1_${id}`).value);
+        const l1 = formatarMedidaSegura(document.getElementById(`l1_${id}`).value);
+        const medTxt = (c1 || l1) ? `${c1 ? c1.texto : '?'} x ${l1 ? l1.texto : '?'}` : 'A conferir';
+        return `*${nome}* (${qtd} pçs) — ${medTxt}`;
+      }).join('\n');
     }
 
     function abrirWhatsCentral() {
@@ -985,11 +1143,10 @@
         alert("Por favor, preencha seu Nome e WhatsApp para enviarmos o retorno do orçamento.");
         return;
       }
-      const selecionados = Array.from(document.querySelectorAll('input[name="cliProjMulti"]:checked')).map(c => c.value);
-      const projTexto = selecionados.length > 0 ? selecionados.join(', ') : 'A definir';
       const pedra = document.getElementById('cliPedra').value;
       const borda = document.getElementById('cliBorda').value;
       const obs = document.getElementById('cliObs').value.trim();
+      const resumoPecas = compilarResumoPecas();
 
       const msg = [
         `Olá equipe da *Marmoraria B&M*! Gostaria de solicitar um orçamento pelo site:`,
@@ -997,10 +1154,12 @@
         `\u{1F464} *Cliente:* ${nome}`,
         `\u{1F4F1} *WhatsApp:* ${whats}`,
         `\u{1F4CD} *Local da Obra:* ${cidade}`,
-        `\u{1F3E0} *Peças/Projetos:* ${projTexto}`,
         `\u{1F48E} *Pedra:* ${pedra}`,
         `\u{2728} *Acabamento:* ${borda}`,
-        obs ? `\u{1F4D0} *Medidas/Obs:* ${obs}` : null
+        ``,
+        `\u{1F3E0} *Especificação das Peças:*`,
+        resumoPecas,
+        obs ? `\n\u{1F4D0} *Obs. Adicionais:* ${obs}` : null
       ].filter(item => item !== null).join('\n');
 
       window.open(`https://api.whatsapp.com/send?phone=${WHATS_BM}&text=${encodeURIComponent(msg)}`, '_blank');
@@ -1018,10 +1177,6 @@
       document.getElementById('navPublica').classList.add('hidden');
       document.getElementById('visao-equipe').classList.remove('hidden');
       setTimeout(initSigBM, 50);
-    }
-
-    function toggleManualEquipe() {
-      document.getElementById('boxManualEquipe').classList.toggle('hidden');
     }
 
     function voltarVitrine() {
@@ -1050,72 +1205,6 @@
       document.getElementById('imgAssinaturaBM').classList.add('hidden');
     }
 
-    function calcPrecoEquipe() {
-      const m2 = parseFloat(document.getElementById('eqM2').value) || 0;
-      const perda = (parseFloat(document.getElementById('eqPerda').value) || 0) / 100;
-      const comp = (parseFloat(document.getElementById('eqComp').value) || 0) / 100;
-      const larg = (parseFloat(document.getElementById('eqLarg').value) || 0) / 100;
-      const mlP = parseFloat(document.getElementById('eqMlPreco').value) || 0;
-      const inst = parseFloat(document.getElementById('eqInst').value) || 0;
-
-      const areaTot = (comp * larg) * (1 + perda);
-      const total = (areaTot * m2) + ((comp + larg) * mlP) + inst;
-      document.getElementById('eqAreaOut').innerText = areaTot.toFixed(2).replace('.', ',') + ' m²';
-      document.getElementById('eqTotalOut').innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    }
-
-    function transferirParaContrato() {
-      const comp = document.getElementById('eqComp').value;
-      const larg = document.getElementById('eqLarg').value;
-      const area = document.getElementById('eqAreaOut').innerText;
-      const totalFormatado = document.getElementById('eqTotalOut').innerText.replace('R$', '').trim();
-      document.getElementById('ctDesc').value = `Peça sob medida (${comp} cm x ${larg} cm — área total c/ corte: ${area}), com acabamento de borda conforme especificado.`;
-      document.getElementById('ctVal').value = totalFormatado;
-      atualizarContrato();
-      document.getElementById('ctCliente').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function calcChapa() {
-      const cL = parseFloat(document.getElementById('chapaL').value) || 1;
-      const cA = parseFloat(document.getElementById('chapaA').value) || 1;
-      const pL = parseFloat(document.getElementById('pecaL').value) || 1;
-      const pA = parseFloat(document.getElementById('pecaA').value) || 1;
-      const areaChapa = (cL * cA) / 10000;
-      const areaPeca = (pL * pA) / 10000;
-      const qtd = Math.max(Math.floor(cL / pL) * Math.floor(cA / pA), Math.floor(cL / pA) * Math.floor(cA / pL));
-      const aprov = Math.min(100, ((qtd * areaPeca) / areaChapa) * 100);
-      document.getElementById('outChapaArea').innerText = areaChapa.toFixed(2).replace('.', ',') + ' m²';
-      document.getElementById('outQtdPecas').innerText = qtd + ' peça(s)';
-      document.getElementById('outAproveit').innerText = aprov.toFixed(1).replace('.', ',') + '%';
-      document.getElementById('outRetalho').innerText = (100 - aprov).toFixed(1).replace('.', ',') + '%';
-    }
-
-    function calcPeso() {
-      const c = (parseFloat(document.getElementById('pesoC').value) || 0) / 100;
-      const l = (parseFloat(document.getElementById('pesoL').value) || 0) / 100;
-      const esp = (parseFloat(document.getElementById('pesoEsp').value) || 2) / 100;
-      const peso = c * l * esp * 2750;
-      document.getElementById('outPesoKg').innerText = peso.toFixed(1).replace('.', ',') + ' kg';
-      document.getElementById('outAlertaReforco').innerText = peso > 65
-        ? '⚠️ Acima de 65 kg — obrigatório uso de mãos-francesas metálicas reforçadas!'
-        : '\u{2705} Peso moderado — suporte padrão adequado.';
-    }
-
-    function calcConv() {
-      const val = parseFloat(document.getElementById('convVal').value) || 0;
-      const un = document.getElementById('convUn').value;
-      let m = val;
-      if (un === 'cm') m = val / 100;
-      if (un === 'mm') m = val / 1000;
-      if (un === 'in') m = val * 0.0254;
-      document.getElementById('outConv').innerHTML = `
-        <div>Metros: <span class="text-white">${m.toFixed(3)} m</span></div>
-        <div>Centímetros: <span class="text-white">${(m * 100).toFixed(1)} cm</span></div>
-        <div>Milímetros: <span class="text-white">${(m * 1000).toFixed(0)} mm</span></div>
-        <div>Polegadas: <span class="text-white">${(m / 0.0254).toFixed(2)} in</span></div>
-      `;
-    }
-
     function atualizarContrato() {
       const tipo = document.getElementById('ctTipoDoc').value;
       const aprovado = document.getElementById('chkAprovadoCliente').checked;
@@ -1139,17 +1228,17 @@
       document.getElementById('clausulaForo').classList.toggle('hidden', tipo !== 'contrato');
     }
 
-    // Frase padrão solicitada pela Grazy para confirmar agendamento do medidor
     function enviarConfirmacaoMedidor() {
       const cli = document.getElementById('ctCliente').value.trim();
       const tel = document.getElementById('ctWhats').value.replace(/\D/g, '');
       const saudacao = cli ? `Olá *${cli}*! ` : `Olá! `;
       const msg = `${saudacao}Aqui é da *Marmoraria B&M*. Estaremos agendando um horário com o medidor para conferir medidas do projeto.`;
-      window.open(tel ? `https://wa.me/55${tel}?text=${encodeURIComponent(msg)}` : `https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+      window.open(tel ? `https://api.whatsapp.com/send?phone=55${tel}&text=${encodeURIComponent(msg)}` : `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     function enviarContratoWhats(destino) {
       const tipo = document.getElementById('ctTipoDoc').value;
+      const numOrc = document.getElementById('ctPedido').value.trim();
       const cli = document.getElementById('ctCliente').value || 'Cliente';
       const tel = document.getElementById('ctWhats').value.replace(/\D/g, '');
       const desc = document.getElementById('ctDesc').value || 'Peças sob medida conforme projeto';
@@ -1160,11 +1249,11 @@
       let msg = "";
       if (tipo === 'orcamento') {
         msg = [
-          `Olá *${cli}*! Segue o resumo do orçamento do seu pedido solicitado à *Marmoraria B&M*:`,
+          `Olá *${cli}*! Segue o resumo do orçamento${numOrc ? ` *Nº ${numOrc}*` : ''} solicitado à *Marmoraria B&M*:`,
           ``,
           `\u{1F4D0} *Descrição:* ${desc}`,
-          `\u{1F4B0} *Valor do Orçamento:* R$ ${val}`,
-          `\u{23F1} *Prazo de Entrega:* Até ${prazo} dias úteis após aprovação do projeto executivo`,
+          `\u{1F4B0} *Valor Total:* R$ ${val}`,
+          `\u{23F1} *Prazo de Entrega:* Até ${prazo} dias úteis do fechamento (Validade: 90 dias)`,
           ``,
           `\u{2705} *Como aprovar:* Basta responder *"ORÇAMENTO APROVADO"* aqui mesmo no WhatsApp. Na visita técnica à obra, nosso colaborador levará o contrato impresso em 2 vias já assinado pela Marmoraria B&M (1 via fica com você e 1 via assinada retorna para o escritório).`,
           ``,
@@ -1172,7 +1261,7 @@
         ].join('\n');
       } else {
         msg = [
-          `Olá *${cli}*! Segue o resumo do *Contrato Oficial* com a *Marmoraria B&M* (CNPJ: 38.423.684/0001-07):`,
+          `Olá *${cli}*! Segue o resumo do *Contrato Oficial*${numOrc ? ` (Ref. ${numOrc})` : ''} com a *Marmoraria B&M* (CNPJ: 38.423.684/0001-07):`,
           ``,
           `\u{1F4D0} *Descrição:* ${desc}`,
           `\u{1F4B0} *Valor Total Acordado:* R$ ${val}`,
@@ -1186,11 +1275,10 @@
       if (destino === 'empresa') {
         window.open(`https://api.whatsapp.com/send?phone=${WHATS_BM}&text=${encodeURIComponent(msg)}`, '_blank');
       } else {
-        window.open(tel ? `https://wa.me/55${tel}?text=${encodeURIComponent(msg)}` : `https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+        window.open(tel ? `https://api.whatsapp.com/send?phone=55${tel}&text=${encodeURIComponent(msg)}` : `https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`, '_blank');
       }
     }
 
-    
     const TEXTOS_POLITICAS = {
       privacidade: {
         titulo: "Política de Privacidade & LGPD — Marmoraria B&M",
@@ -1229,10 +1317,6 @@
       document.getElementById('outCtData').innerText = new Date().toLocaleDateString('pt-BR');
       renderizarPedras();
       atualizarExplicacaoBorda();
-      calcPrecoEquipe();
-      calcChapa();
-      calcPeso();
-      calcConv();
       atualizarContrato();
       if (window.location.hash === '#equipe') { alternarModoEquipe(); }
     });
