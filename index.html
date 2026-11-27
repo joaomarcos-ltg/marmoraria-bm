@@ -77,6 +77,16 @@
     .stone-quartzito-esmeralda { background: linear-gradient(115deg, #064e3b 15%, #10b981 42%, #065f46 58%, #022c22 90%); }
     .stone-calacatta { background: linear-gradient(130deg, #fafafa 30%, #d4d4d8 48%, #a1a1aa 50%, #f4f4f5 54%, #ffffff 85%); }
     .stone-laminas { background: linear-gradient(135deg, #292524 20%, #57534e 50%, #1c1917 85%); }
+    .stone-branco-granito { background: radial-gradient(circle at 40% 40%, #f4f4f5, #d4d4d8 75%, #a1a1aa 100%); }
+    .stone-amarelo { background: linear-gradient(135deg, #eab308 0%, #ca8a04 50%, #a16207 100%); }
+    .stone-verde-ubatuba { background: radial-gradient(circle at 30% 30%, #14532d, #052e16 80%); }
+    .stone-marmore-branco { background: linear-gradient(125deg, #ffffff 30%, #e4e4e7 52%, #d4d4d8 55%, #ffffff 85%); }
+    .stone-perlato { background: linear-gradient(135deg, #f5f5f4 0%, #e7e5e4 50%, #d6d3d1 100%); }
+    .stone-verde-guatemala { background: linear-gradient(120deg, #064e3b 25%, #047857 48%, #022c22 75%); }
+    .stone-taj-mahal { background: linear-gradient(130deg, #f5efe6 25%, #e6d7c3 55%, #d5bfa3 85%); }
+    .stone-cristalo { background: radial-gradient(circle at 50% 50%, #ffffff 20%, #e2e8f0 65%, #cbd5e1 100%); }
+    .stone-nanoglass { background: linear-gradient(145deg, #ffffff 0%, #f8fafc 70%, #e2e8f0 100%); }
+    .stone-rouge { background: radial-gradient(circle at 35% 35%, #991b1b, #7f1d1d 80%); }
   </style>
 </head>
 <body class="bg-zinc-950 text-zinc-100 font-sans antialiased">
@@ -278,11 +288,12 @@
           </div>
 
           <div class="flex flex-wrap gap-2 text-xs">
-            <button onclick="filtrarPedras('todas', this)" class="filtro-pedra px-3.5 py-2 rounded-xl bg-amber-500 text-black font-bold transition">Todas (8)</button>
-            <button onclick="filtrarPedras('Granito', this)" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500 transition">Granitos (2)</button>
-            <button onclick="filtrarPedras('Mármore', this)" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500 transition">Mármores (1)</button>
-            <button onclick="filtrarPedras('Quartzo', this)" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500 transition">Quartzos (3)</button>
-            <button onclick="filtrarPedras('Quartzito', this)" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500 transition">Quartzitos (1)</button>
+            <button onclick="filtrarPedras('todas', this)" class="filtro-pedra px-3.5 py-2 rounded-xl bg-amber-500 text-black font-bold transition">Todas (29)</button>
+            <button onclick="filtrarPedras('Granito', this)" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500 transition">Granitos (13)</button>
+            <button onclick="filtrarPedras('Mármore', this)" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500 transition">Mármores (6)</button>
+            <button onclick="filtrarPedras('Quartzo', this)" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500 transition">Quartzos (5)</button>
+            <button onclick="filtrarPedras('Quartzito', this)" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500 transition">Quartzitos (3)</button>
+            <button onclick="filtrarPedras('Nanoglass', this)" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500 transition">Nanoglass (2)</button>
             <button onclick="filtrarPedras('Lâminas', this)" class="filtro-pedra px-3.5 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-bold hover:border-zinc-500 transition">Lâminas (1)</button>
           </div>
         </div>
@@ -399,14 +410,45 @@
             <label class="font-bold text-zinc-300 block mb-1.5">2. Pedra / Material de Preferência</label>
             <select id="cliPedra" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3.5 py-3 text-white">
               <option value="Ainda quero orientação técnica">Ainda quero orientação técnica</option>
-              <option value="Granito Preto São Gabriel">Granito Preto São Gabriel</option>
-              <option value="Granito Via Láctea">Granito Via Láctea</option>
-              <option value="Mármore Travertino">Mármore Travertino</option>
-              <option value="Quartzo Calacatta">Quartzo Calacatta</option>
-              <option value="Quartzo Branco">Quartzo Branco</option>
-              <option value="Quartzo Cinza Intenso">Quartzo Cinza Intenso</option>
-              <option value="Quartzito Verde Esmeralda">Quartzito Verde Esmeralda</option>
-              <option value="Lâminas Ultracompactas">Lâminas Ultracompactas</option>
+              <optgroup label="Granitos">
+                <option value="Granito Preto São Gabriel">Preto São Gabriel</option>
+                <option value="Granito Via Láctea">Via Láctea</option>
+                <option value="Granito Branco Itaúnas">Branco Itaúnas</option>
+                <option value="Granito Branco Dallas">Branco Dallas</option>
+                <option value="Granito Branco Ceará">Branco Ceará</option>
+                <option value="Granito Branco Alpha">Branco Alpha</option>
+                <option value="Granito White Piracema">White Piracema</option>
+                <option value="Granito Amarelo Ornamental">Amarelo Ornamental</option>
+                <option value="Granito Cinza Andorinha">Cinza Andorinha</option>
+                <option value="Granito Cinza Corumbá">Cinza Corumbá</option>
+                <option value="Granito Cinza Ocre">Cinza Ocre</option>
+                <option value="Granito Verde Ubatuba">Verde Ubatuba</option>
+                <option value="Granito Verde Candeias">Verde Candeias</option>
+              </optgroup>
+              <optgroup label="Mármores">
+                <option value="Mármore Travertino Romano Bruto / Estucado">Travertino Romano (Bruto / Estucado)</option>
+                <option value="Mármore Perlato">Mármore Perlato</option>
+                <option value="Mármore Branco">Mármore Branco</option>
+                <option value="Mármore Pinta Cinza / Verde">Mármore Pinta Cinza / Verde</option>
+                <option value="Mármore Verde Guatemala">Mármore Verde Guatemala</option>
+              </optgroup>
+              <optgroup label="Quartzos">
+                <option value="Quartzo Branco">Quartzo Branco</option>
+                <option value="Quartzo Calacatta">Quartzo Calacatta</option>
+                <option value="Quartzo White Stellar">Quartzo White Stellar</option>
+                <option value="Quartzo Cinza Intenso">Quartzo Cinza Intenso</option>
+                <option value="Quartzo Rouge">Quartzo Rouge</option>
+              </optgroup>
+              <optgroup label="Quartzitos">
+                <option value="Quartzito Taj Mahal">Quartzito Taj Mahal</option>
+                <option value="Quartzito Cristalo Translúcido">Quartzito Cristalo Translúcido</option>
+                <option value="Quartzito Verde Esmeralda">Quartzito Verde Esmeralda</option>
+              </optgroup>
+              <optgroup label="Nanoglass & Lâminas Ultracompactas">
+                <option value="Nano Glass">Nano Glass</option>
+                <option value="Nano Calacatta Gold">Nano Calacatta Gold</option>
+                <option value="Lâminas Ultracompactas">Lâminas Ultracompactas</option>
+              </optgroup>
               <option value="Outros materiais">Outros materiais</option>
             </select>
           </div>
@@ -733,14 +775,44 @@
     }
 
     const PEDRAS = [
+      // GRANITOS
       { nome: "Preto São Gabriel", cat: "Granito", css: "stone-sao-gabriel", uso: "Cozinhas, Ilhas e Áreas Gourmet", desc: "Alta resistência a riscos, calor e baixa absorção. Visual sofisticado e uniforme." },
       { nome: "Granito Via Láctea", cat: "Granito", css: "stone-via-lactea", uso: "Cozinhas Modernas e Bancadas", desc: "Fundo preto intenso com veios brancos naturais marcantes e altíssima durabilidade." },
-      { nome: "Mármore Travertino", cat: "Mármore", css: "stone-travertino", uso: "Lavatórios, Nichos e Revestimentos", desc: "Mármore clássico em tons bege/areia. Indicado para banheiros e ambientes internos." },
-      { nome: "Quartzo Calacatta", cat: "Quartzo", css: "stone-calacatta", uso: "Cozinhas Gourmet e Lavatórios", desc: "Fundo branco luminoso com veios elegantes e altíssima uniformidade." },
-      { nome: "Quartzo Branco", cat: "Quartzo", css: "stone-quartzo-zeus", uso: "Lavatórios e Bancadas Internas", desc: "Visual branco uniforme. Obs. técnica: pode absorver líquidos/manchar se não limpo de imediato." },
+      { nome: "Branco Itaúnas", cat: "Granito", css: "stone-branco-granito", uso: "Cozinhas, Lavatórios e Escadas", desc: "Granito claro de grãos finos e suaves, muito procurado para ambientes iluminados." },
+      { nome: "Branco Dallas", cat: "Granito", css: "stone-branco-granito", uso: "Bancadas, Pias e Soleiras", desc: "Clássico versátil de excelente custo-benefício e alta resistência mecânica." },
+      { nome: "Branco Ceará", cat: "Granito", css: "stone-branco-granito", uso: "Cozinhas e Áreas Gourmet", desc: "Fundo claro uniforme com pontos discretos e excelente durabilidade." },
+      { nome: "Branco Alpha", cat: "Granito", css: "stone-branco-granito", uso: "Pias, Lavatórios e Soleiras", desc: "Tonalidade clara equilibrada, ideal para projetos limpos e funcionais." },
+      { nome: "White Piracema", cat: "Granito", css: "stone-via-lactea", uso: "Bancadas e Ilhas Gourmet", desc: "Movimento natural elegante em tons de branco e cinza com resistência de granito." },
+      { nome: "Amarelo Ornamental", cat: "Granito", css: "stone-amarelo", uso: "Cozinhas, Bancadas e Peitoris", desc: "Tons dourados e terrosos aconchegantes com altíssima resistência ao uso diário." },
+      { nome: "Cinza Andorinha", cat: "Granito", css: "stone-quartzo-cinza", uso: "Áreas Externas, Escadas e Pias", desc: "Um dos granitos mais resistentes do mercado para alto tráfego e áreas externas." },
+      { nome: "Cinza Corumbá", cat: "Granito", css: "stone-quartzo-cinza", uso: "Escadas, Soleiras e Bancadas", desc: "Acabamento cinza uniforme de alta dureza e baixíssima manutenção." },
+      { nome: "Cinza Ocre", cat: "Granito", css: "stone-quartzo-cinza", uso: "Soleiras, Peitoris e Revestimentos", desc: "Granito tradicional robusto com excelente desempenho estrutural." },
+      { nome: "Verde Ubatuba", cat: "Granito", css: "stone-verde-ubatuba", uso: "Cozinhas, Churrasqueiras e Túmulos", desc: "Verde-escuro profundo quase preto, extremamente resistente a manchas e calor." },
+      { nome: "Verde Candeias", cat: "Granito", css: "stone-verde-ubatuba", uso: "Bancadas e Áreas Gourmet", desc: "Tonalidade verde natural com grãos característicos e ótima durabilidade." },
+
+      // MÁRMORES
+      { nome: "Travertino Romano", cat: "Mármore", css: "stone-travertino", uso: "Lavatórios, Nichos e Revestimentos", desc: "Disponível nas versões Bruto ou Estucado. Clássico atemporal para banheiros e salas." },
+      { nome: "Mármore Perlato", cat: "Mármore", css: "stone-perlato", uso: "Lavatórios, Escadas Internas e Nichos", desc: "Fundo bege claro suave com pequenos detalhes fossilizados de grande elegância." },
+      { nome: "Mármore Branco", cat: "Mármore", css: "stone-marmore-branco", uso: "Lavatórios, Nichos e Soleiras Internas", desc: "Visual clássico e luminoso, muito utilizado em banheiros e detalhes internos." },
+      { nome: "Mármore Pinta Cinza / Verde", cat: "Mármore", css: "stone-marmore-branco", uso: "Lavatórios, Soleiras e Peitoris", desc: "Mármore nacional tradicional de ótimo custo-benefício para áreas internas." },
+      { nome: "Verde Guatemala", cat: "Mármore", css: "stone-verde-guatemala", uso: "Lavatórios, Mesas e Lavabos", desc: "Mármore verde intenso de personalidade marcante com veios escuros naturais." },
+
+      // QUARTZOS
+      { nome: "Quartzo Branco", cat: "Quartzo", css: "stone-quartzo-zeus", uso: "Lavatórios e Bancadas Internas", desc: "Visual branco uniforme e moderno. Obs.: limpar líquidos imediatamente e evitar calor direto." },
+      { nome: "Quartzo Calacatta", cat: "Quartzo", css: "stone-calacatta", uso: "Cozinhas Gourmet e Lavatórios", desc: "Fundo branco luminoso com veios elegantes e altíssima uniformidade estética." },
+      { nome: "Quartzo White Stellar", cat: "Quartzo", css: "stone-quartzo-zeus", uso: "Ilhas, Bancadas e Lavatórios", desc: "Superfície branca com micropartículas espelhadas que refletem a iluminação." },
       { nome: "Quartzo Cinza Intenso", cat: "Quartzo", css: "stone-quartzo-cinza", uso: "Lavatórios e Bancadas Contemporâneas", desc: "Tom cinza moderno com acabamento impecável para cubas esculpidas." },
-      { nome: "Quartzito Verde Esmeralda", cat: "Quartzito", css: "stone-quartzito-esmeralda", uso: "Ilhas Gourmet e Projetos Exclusivos", desc: "Rocha natural nobre com dureza extrema e veios esverdeados únicos." },
-      { nome: "Lâminas Ultracompactas", cat: "Lâminas", css: "stone-laminas", uso: "Bancadas Slim, Ilhas e Painéis", desc: "Superfícies ultracompactas de grande formato com acabamento fino e moderno." }
+      { nome: "Quartzo Rouge", cat: "Quartzo", css: "stone-rouge", uso: "Projetos Autorais, Lavabos e Detalhes", desc: "Vermelho vibrante de alto impacto visual para ambientes modernos." },
+
+      // QUARTZITOS
+      { nome: "Quartzito Taj Mahal", cat: "Quartzito", css: "stone-taj-mahal", uso: "Cozinhas de Alto Padrão e Ilhas", desc: "Rocha natural nobre de tons bege/creme suaves com dureza superior ao granito." },
+      { nome: "Cristalo Translúcido", cat: "Quartzito", css: "stone-cristalo", uso: "Ilhas Iluminadas, Lavabos e Painéis", desc: "Quartzito natural cristalino que permite retroiluminação por LED com efeito único." },
+      { nome: "Quartzito Verde Esmeralda", cat: "Quartzito", css: "stone-quartzito-esmeralda", uso: "Ilhas Gourmet e Projetos Exclusivos", desc: "Rocha natural nobre com dureza extrema e veios esverdeados marcantes." },
+
+      // NANOGLASS & LÂMINAS
+      { nome: "Nano Glass", cat: "Nanoglass", css: "stone-nanoglass", uso: "Lavatórios, Escadas Internas e Bancadas", desc: "Superfície branca cristalizada ultra-homogênea, zero porosidade e brilho intenso." },
+      { nome: "Nano Calacatta Gold", cat: "Nanoglass", css: "stone-calacatta", uso: "Lavatórios, Nichos e Bancadas Internas", desc: "Brilho cristalino do Nanoglass combinado a veios dourados/acinzentados sofisticados." },
+      { nome: "Lâminas Ultracompactas", cat: "Lâminas", css: "stone-laminas", uso: "Bancadas Slim, Ilhas e Churrasqueiras", desc: "Superfícies ultracompactas de grande formato com alta resistência térmica e mecânica." }
     ];
 
     function renderizarPedras(filtro = 'todas') {
