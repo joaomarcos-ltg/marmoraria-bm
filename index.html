@@ -893,6 +893,17 @@
                 </div>
               </div>
 
+              ${(nome === "Ilha Gourmet" || id.includes("ilha")) ? `
+              <div>
+                <label class="text-zinc-300 font-bold block mb-1">Pés Laterais em Pedra (Modelo Cascata)</label>
+                <select id="pes_${id}" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3 py-2 text-white">
+                  <option value="Sem pés de pedra (apenas tampo sobre móvel/alvenaria)">Sem pés de pedra (apenas tampo sobre móvel/alvenaria)</option>
+                  <option value="Com 2 pés laterais em pedra (cascata até o chão)">Com 2 pés laterais em pedra (cascata até o chão)</option>
+                  <option value="Com 1 pé lateral em pedra (península)">Com 1 pé lateral em pedra (península)</option>
+                  <option value="A definir na medição">A definir na medição</option>
+                </select>
+              </div>` : ""}
+
               <!-- Recortes -->
               <div class="pt-1">
                 <label class="text-zinc-400 block mb-1.5">Recortes / Acessórios na peça:</label>
@@ -1082,10 +1093,12 @@
           const l2 = formatarMedidaSegura(document.getElementById(`l2_${id}`)?.value);
           const c3 = formatarMedidaSegura(document.getElementById(`c3_${id}`)?.value);
           const l3 = formatarMedidaSegura(document.getElementById(`l3_${id}`)?.value);
+          const pes = document.getElementById(`pes_${id}`)?.value;
           const recs = Array.from(document.querySelectorAll(`input[name="rec_${id}"]:checked`)).map(r => r.value);
 
           let linhas = [`*${nome}* (Formato: ${fmt})`];
           linhas.push(`   - Posição: ${pos}`);
+          if (pes) linhas.push(`   - Pés Laterais: ${pes}`);
           if (c1 || l1) linhas.push(`   - Trecho A: ${c1 ? c1.texto : '?'} (comp.) x ${l1 ? l1.texto : '60cm padrão'} (prof.)`);
           if (fmt !== 'Reta' && fmt !== 'Ilha Central' && (c2 || l2)) {
             linhas.push(`   - Trecho B: ${c2 ? c2.texto : '?'} (comp.) x ${l2 ? l2.texto : '60cm padrão'} (prof.)`);
