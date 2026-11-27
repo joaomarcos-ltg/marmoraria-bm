@@ -1252,10 +1252,10 @@
     function enviarContratoWhats(destino) {
       const tipo = document.getElementById('ctTipoDoc').value;
       const numOrc = document.getElementById('ctPedido').value.trim();
-      const cli = document.getElementById('ctCliente').value || 'Cliente';
+      const cli = document.getElementById('ctCliente').value.trim() || 'Cliente';
       const tel = document.getElementById('ctWhats').value.replace(/\D/g, '');
-      const desc = document.getElementById('ctDesc').value || 'Peças sob medida conforme projeto';
-      const val = document.getElementById('ctVal').value || '0,00';
+      const desc = document.getElementById('ctDesc').value.trim() || 'Peças sob medida conforme projeto';
+      const val = document.getElementById('ctVal').value.trim() || '0,00';
       const prazo = document.getElementById('ctPrazo').value;
       const aprovado = document.getElementById('chkAprovadoCliente').checked;
 
